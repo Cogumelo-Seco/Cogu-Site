@@ -12,11 +12,11 @@ const load = () => {
         <html lang="pt-BR">
             <head>
                 <meta property="theme-color" content="#010101" />
-                <meta property="og:title" content="Alpha Bot" />
-                <meta property="og:site_name" content="Alpha Site" />
-                <meta property="og:url" content="https://alpha-site.vercel.app/" />                
+                <meta property="og:title" content="CoguBot" />
+                <meta property="og:site_name" content="Cogu Site" />
+                <meta property="og:url" content="https://cogu.vercel.app/en/" />                
                 <meta property="og:image" content="/avatar/Roxo.png" />
-                <meta property="og:description" content="Hi, I'm Alpha Bot, I have nothing to say. Good morning!" />
+                <meta property="og:description" content="Hi, I'm CoguBot, I have nothing to say. Good morning!" />
             </head>
 
             <style>{`

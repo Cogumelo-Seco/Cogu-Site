@@ -68,7 +68,7 @@ function App({ Component, pageProps }) {
             
             <header>
                 <ul>
-                    <li id="alpha-image">
+                    <li id="cogu-image">
                         <Link href={pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en'}>
                             <img src="/imgs/avatar/Default.png" />
                         </Link>
@@ -76,9 +76,6 @@ function App({ Component, pageProps }) {
 
                     <li className="header-buttons">
                         <a href="https://discord.gg/33Zsrg5dTc" target="_blank">{pageProps.language == 'pt' ? 'Suporte' : pageProps.language == 'es' ? 'Soporte' : 'Support'}</a>
-                    </li>
-                    <li className="header-buttons">
-                        <Link href={(pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en')+'/commands'}>{pageProps.language == 'pt' || pageProps.language == 'es' ? 'Comandos' : 'Commands'}</Link>
                     </li>
                     <li className="header-buttons">
                         <a href={pageProps.botInvite} target="_blank">{pageProps.language == 'pt' ? 'Adicionar' : pageProps.language == 'es' ? 'Añadir' : 'Add'}</a>
@@ -126,9 +123,6 @@ function App({ Component, pageProps }) {
 
                     <li className="header-buttons">
                         <a href="https://discord.gg/33Zsrg5dTc" target="_blank">{pageProps.language == 'pt' ? 'Suporte' : pageProps.language == 'es' ? 'Soporte' : 'Support'}</a>
-                    </li>
-                    <li className="header-buttons" onClick={() => openCloseMobileHeader(false)}>
-                        <Link href={(pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en')+'/commands'}>{pageProps.language == 'pt' || pageProps.language == 'es' ? 'Comandos' : 'Commands'}</Link>
                     </li>
                     <li className="header-buttons">
                         <a href={pageProps.botInvite} target="_blank">{pageProps.language == 'pt' ? 'Adicionar' : pageProps.language == 'es' ? 'Añadir' : 'Add'}</a>

@@ -27,14 +27,14 @@ function en(props) {
     return (
         <html lang="en">
             <Head>
-                <title>Alpha Site</title>
+                <title>Cogu Site</title>
 
                 <meta property="theme-color" content="#010101" />
-                <meta property="og:title" content="Alpha Bot" />
-                <meta property="og:site_name" content="Alpha Site" />
-                <meta property="og:url" content="https://alpha-site.vercel.app/en/" />                
+                <meta property="og:title" content="CoguBot" />
+                <meta property="og:site_name" content="Cogu Site" />
+                <meta property="og:url" content="https://cogu.vercel.app/en/" />                
                 <meta property="og:image" content="/avatar/Roxo.png" />
-                <meta property="og:description" content="Hi, I'm Alpha Bot, I have nothing to say. Good morning!" />
+                <meta property="og:description" content="Hi, I'm CoguBot, I have nothing to say. Good morning!" />
             </Head>
             <head>
                 <link rel="stylesheet" href="/css/home/animations.css" />
@@ -42,7 +42,7 @@ function en(props) {
             </head>
             <body>
                 <section>
-                    <h1 id="title">Hi, I'm Alpha Bot</h1>
+                    <h1 id="title">Hi, I'm CoguBot</h1>
                     <h3 id="description">I have nothing to say. Good morning!</h3>
                     <a id="add-button" href={props.botInvite} target="_blank">Add me!</a>
                 </section>

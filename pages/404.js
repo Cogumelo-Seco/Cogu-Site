@@ -28,7 +28,7 @@ function Err() {
         <html lang="pt-BR">
             <head>
                 <meta property="theme-color" content="rgb(92, 0, 92)" />
-                <title>404 | Página não encontrada</title>
+                <title>404 | Page not found</title>
 
                 <link rel="stylesheet" href="/css/_404/animations.css" />
                 <link rel="stylesheet" href="/css/_404/404.css" />

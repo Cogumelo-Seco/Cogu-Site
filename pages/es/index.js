@@ -28,14 +28,14 @@ function pt(props) {
     return (
         <html lang="pt-BR">
             <Head>
-                <title>Alpha Site</title>
+                <title>Cogu Site</title>
 
                 <meta property="theme-color" content="#010101" />
-                <meta property="og:title" content="Alpha Bot" />
-                <meta property="og:site_name" content="Alpha Site" />
-                <meta property="og:url" content="https://alpha-site.vercel.app/br" />                
+                <meta property="og:title" content="CoguBot" />
+                <meta property="og:site_name" content="Cogu Site" />
+                <meta property="og:url" content="https://cogu.vercel.app/br" />                
                 <meta property="og:image" content="/avatar/Roxo.png" />
-                <meta property="og:description" content="Hola soy Alpha Bot, no tengo nada que decir. ¡Buenos días!" />
+                <meta property="og:description" content="Hola soy CoguBot, no tengo nada que decir. ¡Buen día!" />
             </Head>
             <head>
                 <link rel="stylesheet" href="/css/home/animations.css" />
@@ -44,7 +44,7 @@ function pt(props) {
             <body>
                 <section>
                     <h1 id="title">Hola soy Alpha Bot</h1>
-                    <h3 id="description">No tengo nada que decir. ¡Buenos días!</h3>
+                    <h3 id="description">No tengo nada que decir. ¡Buen día!</h3>
                     <a id="add-button" href={props.botInvite} target="_blank">Añadir</a>
                 </section>
             </body>

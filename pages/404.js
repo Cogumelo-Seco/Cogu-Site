@@ -18,7 +18,6 @@ function Err() {
 
             game.loading({ Listener })
             Listener.state.game = game
-            //game.start()
 
             renderGame(game, Listener);
         }

@@ -16,8 +16,8 @@ function Err() {
             document.getElementById('gameContent').style.display = 'block'
             document.getElementById('mobileButtonsContaner').style.display = 'block'
 
-            game.loading({ Listener })
-            Listener.state.game = game
+            game.loading({ Listener });
+            Listener.state.game = game;
 
             renderGame(game, Listener);
         }

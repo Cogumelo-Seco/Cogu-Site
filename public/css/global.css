@@ -1,3 +1,17 @@
+body, #__next{
+    background: var(--gradient-bg-main);
+    color: var(--color-text-main);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
 /* SCROLL BAR */
 
 ::-webkit-scrollbar {

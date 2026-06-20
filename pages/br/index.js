@@ -26,7 +26,7 @@ function pt(props) {
     })
 
     return (
-        <html lang="pt-BR">
+        <main>
             <Head>
                 <title>Cogu Site</title>
 
@@ -41,20 +41,19 @@ function pt(props) {
                 <link rel="stylesheet" href="/css/home/animations.css" />
                 <link rel="stylesheet" href="/css/home/home.css" />         
             </head>
-            <body>
-                <section>
-                    <h1 id="title">Olá eu sou o CoguBot</h1>
-                    <h3 id="description">Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!</h3>
-                    <a id="add-button" href={props.botInvite} target="_blank">Me adicione!</a>
-                </section>
-            </body>
-        </html>
+            
+            <section>
+                <h1 id="title">Olá eu sou o CoguBot</h1>
+                <h3 id="description">Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!</h3>
+                <a id="add-button" href={props.botInvite} target="_blank">Me adicione!</a>
+            </section>
+        </main>
     )
 }
 
 export async function getStaticProps(a) {
-    let botInvite = process.env.botInvite
-    let serv = process.env.SERVER
+    let botInvite = null//process.env.botInvite
+    let serv = null//process.env.SERVER
 
     return {
         props: {

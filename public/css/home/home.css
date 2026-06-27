@@ -18,14 +18,6 @@ div.infoContaner > * {
   z-index: 1;
 }
 
-@media screen and (max-width: 1030px) {
-    div.infoContaner {
-        left: 0;
-        width: 100%;
-        height: 53vh;
-    }
-}
-
 
 /* TITLE GLITCH ANIMATION */
 
@@ -247,7 +239,18 @@ div.cardsContainer {
 }
 
 @media screen and (max-width: 1030px) {
+    div.infoContaner {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 53vh;
+    }
+
+    .glitcTitle {
+        font-size: 7rem;
+    }
+
     .pixel-card {
-        width: 90%;
+        width: 100%;
     }
 }

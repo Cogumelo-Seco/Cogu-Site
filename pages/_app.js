@@ -66,70 +66,18 @@ function App({ Component, pageProps }) {
                 </div>
             </div>
             
+            <div class="background"></div>
+
             <header>
-                <ul>
-                    <li id="cogu-image">
-                        <Link href={pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en'}>
-                            <img src="/imgs/avatar/Default.png" />
-                        </Link>
-                    </li>
+                <div className="headerBox">
+                    <a href="#" className="logo">
+                        <div className="logo-text" data-text="Cogu">Cogu<span>_</span></div>
+                    </a>
 
-                    <li className="header-buttons">
-                        <a href="https://discord.gg/33Zsrg5dTc" target="_blank">{pageProps.language == 'pt' ? 'Suporte' : pageProps.language == 'es' ? 'Soporte' : 'Support'}</a>
-                    </li>
-                    <li className="header-buttons">
-                        <a href={pageProps.botInvite} target="_blank">{pageProps.language == 'pt' ? 'Adicionar' : pageProps.language == 'es' ? 'Añadir' : 'Add'}</a>
-                    </li>
-                    <li className="header-buttons">
-                        <a href={(pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en')+'/links'}>Links</a>
-                    </li>
-
-                    <div id="language">
-                        <img id="lang-image" src="/imgs/language-icon.png" onClick={langButtonClick} />
-
-                        <ul id="selectLangBox">
-                            <Link href={'/br'+pageProps.languageChangeLink} >
-                                <li id="languagePT" className="languageButton">
-                                    <img className="languageFlag" id="languagePTFlag" src="/imgs/Flags/Brasil.png" />
-                                    PT
-                                </li>
-                            </Link>
-                            <Link href={'/es'+pageProps.languageChangeLink} >
-                                <li id="languageES" className="languageButton">
-                                    <img className="languageFlag" id="languageESFlag" src="/imgs/Flags/Mexico.png" />
-                                    ES
-                                </li>
-                            </Link>
-                            <Link href={'/en'+pageProps.languageChangeLink} >
-                                <li id="languageEN" className="languageButton">
-                                    <img className="languageFlag" id="languageENFlag" src="/imgs/Flags/EUA.png" />
-                                    EN
-                                </li>
-                            </Link>
-                        </ul>
+                    <div className="nav-links">
+                        <a href="/" className="navlink active">Início</a>
+                        <a href="/projects" className="navlink">Projetos</a>
                     </div>
-
-                    <li className="open-close-button">
-                        <img src="/imgs/bars.png" onClick={() => openCloseMobileHeader(true)} />
-                    </li>
-
-                </ul>
-
-                <div id="ofuscation" onClick={() => openCloseMobileHeader(false)}/>
-                <div id="mobile-header">
-                    <li className="open-close-button">
-                        <img src="/imgs/x.png" onClick={() => openCloseMobileHeader(false)} />
-                    </li>              
-
-                    <li className="header-buttons">
-                        <a href="https://discord.gg/33Zsrg5dTc" target="_blank">{pageProps.language == 'pt' ? 'Suporte' : pageProps.language == 'es' ? 'Soporte' : 'Support'}</a>
-                    </li>
-                    <li className="header-buttons">
-                        <a href={pageProps.botInvite} target="_blank">{pageProps.language == 'pt' ? 'Adicionar' : pageProps.language == 'es' ? 'Añadir' : 'Add'}</a>
-                    </li>
-                    <li className="header-buttons" onClick={() => openCloseMobileHeader(false)}>
-                        <a href={(pageProps.language == 'pt' ? '/br' : pageProps.language == 'es' ? '/es' : '/en')+'/links'}>Links</a>
-                    </li>
                 </div>
             </header>
 

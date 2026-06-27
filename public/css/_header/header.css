@@ -1,206 +1,92 @@
 
 header {
-    background: var(--gradient-header);
-    border-bottom: 1px solid var(--color-border-glow);
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 80px;
+    padding: 10px;
+}
+
+div.headerBox {
+    border: 1px solid var(--color-border-glow);
     box-shadow: var(--shadow-purple-soft);
 
-    padding: 0;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    background:
+        var(--gradient-header) padding-box,
+        var(--gradient-header-border) border-box;
+
+    padding: 10px;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-header ul {
+.logo {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    text-shadow: 0 0 18px rgba(180, 108, 255, 0.7);
+    color: var(--color-text-main);
 }
 
-/* Botão do usuário e botão Home com a foto do cogu */
-
-li#cogu-image img,
-li.user-button img {
-    width: 35px;
-    border-radius: 50%;
-    margin-top: 5px;
-    cursor: pointer;
-    transition: all 0.7s;
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 15px #9b4dff;
 }
 
-li#cogu-image img:hover,
-li.user-button img:hover {
-    border-radius: 15px;
+.logo div {
+    transform: translateY(-2px);
 }
 
-li#cogu-image {
-    margin-right: auto;
-    margin-left: 18px;
+.logo span {
+    color: #b56cff;
+    animation: underlineAnimation .5s infinite ease-in-out alternate;
 }
 
-li.user-button {
-    margin-left: auto;
-    margin-right: 18px;
+@keyframes underlineAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-header ul li.header-buttons {
-    margin-right: auto;
-    margin-left: auto;
-    font-size: 18px;
-    color: black;
-    transition: all 0.2s;
+.nav-links {
+    display: flex;
+    gap: 22px;
+    font-size: 1rem;
+    
 }
 
-header ul li a {
-    color: white;
-    transition: all 0.5s;
-}
-
-header ul li.header-buttons:hover,
-header ul li a:hover {
-    color: rgb(233, 166, 255);
-    transform: translateY(0.5px);
-}
-
-/* Botão e caixa de linguagem */
-
-header ul div#language {
-    width: 80px;
-    z-index: 1;
-}
-
-header ul div#language img#lang-image {
-    border-radius: 10px;
-    cursor: pointer;
-    float: right;
-    vertical-align: top;
-    margin: 5px 20px;
-    width: 35px;
-    height: 35px;
-    transition: 0.7s;
-}
-
-header ul div#language ul#selectLangBox {
-    display: none;
-    background-color: var(--page-color-1);
-    position: absolute;
-    flex-direction: column;
-    gap: .3rem;
-    justify-content: center;
-    padding: 5px;
-    margin-top: 45px;
-    border: solid black 1px;
-    border-radius: 8px;
-    transform: translateY(-45px);
-    opacity: 0;
-    animation: langBox 0.15s ease forwards;
-}
-
-li.languageButton {
+.nav-links a {
+    color: var(--color-text-main);
     position: relative;
-    color: white;
-    cursor: pointer;
-    transition: all 0.5s;
-    padding: 4px;
-    padding-top: 3px;
-    padding-bottom: 5px;
-    background-color: var(--item-color-4);
-    border-radius: 8px;
-    width: 93%
+    margin: 0 10px;
 }
 
-li {
-    list-style-type: none;
-    text-align: left;
-}
-
-li.languageButton:hover {
-    background-color: var(--item-color-4-h);
-}
-
-img#lang-image:hover {
-    background-color: #2b2b2b;
-}
-
-img#languageFlag {
-    vertical-align: top;
-}
-
-img.languageFlag {
-    margin-right: 5px;
-    display: inline-block;
-    width: 30px;
-    height: 18.45px;
-    transform: translateY(3px);
-}
-
-/* Painel lateral para quando a tela for diminuida */
-
-div#mobile-header {
-    display: none;
-    background-color: var(--page-color-1);
-    border-right: solid black 2px;
-    position: fixed;    
-    height: 100%;
-    width: 200px;
-    z-index: 3;
-    top: 0;
-    opacity: 0;
-    transform: translateX(-100%);
-    animation: mobileHeaderOpen 0.2s linear forwards;
-}
-
-div#ofuscation {
-    display: none;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.400);
-    height: 100%;
-    width: 100%;
-}
-
-div#mobile-header li.header-buttons {
-    list-style-type: none;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-left: 10px;
-    font-size: 20px;
-    transition: all 0.2s;
-}
-
-div#mobile-header li a {
-    padding: 0 5px;
-    font-size: 23px;
-    color: white;
-}
-
-div#mobile-header li a:hover,
-div#mobile-header li:hover {
-    color: rgb(233, 166, 255);
-    transform: translateX(1px);
-}
-
-li.open-close-button {
-    display: none;
-    cursor: pointer;
-    width: 40px;
-}
-
-li.user-button.login-exit {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-a#headerUserName {
+.nav-links a.active::after {
+    content: "";
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: -4px;
     width: 100%;
-    height: 20px;
-    line-height: 20px;
-    overflow: hidden;
-    text-align: center;
-    background-color: #23272a;
-    border-bottom: solid black 2px;
+    height: 2px;
+    background: var(--underline-header);
+    box-shadow: var(--underline-header-shadow);
+    border-radius: 999px;
+    transition: width .5s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-text-main);
+    text-shadow: 0 0 18px var(--color-text-accent);
 }

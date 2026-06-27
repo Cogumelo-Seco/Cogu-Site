@@ -9,7 +9,11 @@ import renderGame from '../public/js/404/RenderGame/index.js';
 function Err() {
 
     useEffect(() => {
+        let errorCard = document.getElementById("error-card")
+
         document.getElementById('gameButton').onclick = () => {
+            errorCard.style.display = "none"
+            
             const canvas = document.getElementById('gameCanvas')        
             const Listener = createListener();
             const game = createGame(Listener, canvas);
@@ -24,40 +28,58 @@ function Err() {
     })
 
     return (
-        <html lang="pt-BR">
-            <head>
-                <meta property="theme-color" content="rgb(92, 0, 92)" />
-                <title>404 | Page not found</title>
+        <main>
+            <Head>
+                <title>Cogu Site</title>
 
-                <link rel="stylesheet" href="/css/_404/animations.css" />
+                <meta property="theme-color" content="#010101" />
+                <meta property="og:title" content="CoguBot" />
+                <meta property="og:site_name" content="Cogu Site" />
+                <meta property="og:url" content="https://cogu.vercel.app/br" />                
+                <meta property="og:image" content="/avatar/Roxo.png" />
+                <meta property="og:description" content="Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!" />
+            </Head>
+            <head>
                 <link rel="stylesheet" href="/css/_404/404.css" />
             </head>
-            <body id="body">
-                <section>
-                    <div id="content">
-                        <div id="description">Page not found</div>
-                        <div id="number">404</div>
-                        <a className="button" href="/">Home</a>
-                        <a className="button" id="gameButton">Game</a>
 
-                        <div id="gameContent">
-                            <div id="gameHUD">
-                                <span id="playerScore">POINTS 100</span>
-                            </div>
-                            <canvas id="gameCanvas" />
-                        </div>
-                    </div>
+            <section class="error-card" id="error-card">
+                <div class="magic-symbol">⌬</div>
 
-                    <div id="mobileButtonsContaner">
-                        <button className="mobileButtons" id="mobileButtonUp" />
-                        <div className="mobileButtonsSeparator" />
-                        <button className="mobileButtons" id="mobileButtonLeft" />
-                        <button className="mobileButtons" id="mobileButtonDown" />
-                        <button className="mobileButtons" id="mobileButtonRight" />
-                    </div>
-                </section>
-            </body>
-        </html>
+                <h1 class="glitch" data-text="404_">404_</h1>
+                <h2>Página perdida no glitch</h2>
+
+                <p>
+                    Esse caminho caiu no void. O código tentou compilar,
+                    mas a realidade quebrou.
+                </p>
+
+                <pre class="terminal">ERROR: route_not_found
+                    signal: broken
+                    status: lost_in_void
+                </pre>
+
+                <div class="buttons">
+                    <a href="/" class="btn">&gt;_ Voltar ao início</a>
+                    <a id="gameButton" class="btn secondary">&gt;_ Game</a>
+                </div>
+            </section>
+            
+            <div id="gameContent">
+                <div id="gameHUD">
+                    <span id="playerScore">POINTS 100</span>
+                </div>
+                <canvas id="gameCanvas" />
+            </div>
+
+            <div id="mobileButtonsContaner">
+                <button className="mobileButtons" id="mobileButtonUp" />
+                <div className="mobileButtonsSeparator" />
+                <button className="mobileButtons" id="mobileButtonLeft" />
+                <button className="mobileButtons" id="mobileButtonDown" />
+                <button className="mobileButtons" id="mobileButtonRight" />
+            </div>
+        </main>
     )
 }
 

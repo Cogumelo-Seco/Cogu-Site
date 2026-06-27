@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cogu | Dev Dark Fantasy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07030f;
+      --bg-soft: #10071f;
+      --card: rgba(22, 10, 42, 0.72);
+      --purple: #9b5cff;
+      --purple-2: #d56bff;
+      --violet: #6d28ff;
+      --text: #f4ecff;
+      --muted: #b8a8cf;
+      --border: rgba(178, 100, 255, 0.25);
+      --danger: #ff4fd8;
+      --glow: 0 0 30px rgba(155, 92, 255, 0.55);
+    }
+
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(155, 92, 255, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(255, 79, 216, 0.12), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(109, 40, 255, 0.18), transparent 35%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+      opacity: 0.35;
+      z-index: -2;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.025),
+        rgba(255,255,255,0.025) 1px,
+        transparent 1px,
+        transparent 5px
+      );
+      opacity: 0.18;
+      z-index: 10;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 3, 15, 0.68);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.35rem;
+    }
+
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(155,92,255,.35), rgba(255,79,216,.12));
+      box-shadow: var(--glow);
+      color: var(--purple-2);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-shadow: 0 0 18px var(--purple);
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 48px;
+      padding: 72px 0;
+    }
+
+    .tag {
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--purple-2);
+      background: rgba(155, 92, 255, 0.09);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      box-shadow: 0 0 24px rgba(155, 92, 255, 0.18);
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 8vw, 6.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      margin-bottom: 24px;
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+      color: var(--text);
+      text-shadow:
+        0 0 18px rgba(155, 92, 255, 0.65),
+        0 0 48px rgba(213, 107, 255, 0.28);
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .glitch::before {
+      color: #ff4fd8;
+      transform: translate(2px, -1px);
+      clip-path: inset(0 0 55% 0);
+      animation: glitchTop 2.5s infinite steps(2, end);
+    }
+
+    .glitch::after {
+      color: #6be7ff;
+      transform: translate(-2px, 1px);
+      clip-path: inset(55% 0 0 0);
+      animation: glitchBottom 3s infinite steps(2, end);
+    }
+
+    @keyframes glitchTop {
+      0%, 86%, 100% { transform: translate(2px, -1px); }
+      88% { transform: translate(-6px, 2px); }
+      90% { transform: translate(5px, -3px); }
+      92% { transform: translate(1px, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0%, 78%, 100% { transform: translate(-2px, 1px); }
+      80% { transform: translate(5px, 3px); }
+      83% { transform: translate(-4px, -2px); }
+      86% { transform: translate(0, 1px); }
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.75;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      font-weight: 800;
+      transition: 0.22s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), var(--danger));
+      box-shadow: var(--glow);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 560px;
+    }
+
+    .stat {
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--purple-2);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .avatar-card {
+      position: relative;
+      min-height: 560px;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      background:
+        linear-gradient(180deg, rgba(155,92,255,.12), rgba(255,79,216,.04)),
+        rgba(14, 6, 30, 0.72);
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(155, 92, 255, 0.17);
+    }
+
+    .avatar-card::before {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(155, 92, 255, 0.32);
+      filter: blur(80px);
+      left: 50%;
+      top: 18%;
+      transform: translateX(-50%);
+    }
+
+    .avatar {
+      position: absolute;
+      inset: 30px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(213,107,255,.18), transparent 38%),
+        linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .avatar-face {
+      position: relative;
+      width: 245px;
+      height: 245px;
+      border-radius: 48% 52% 50% 50%;
+      background: linear-gradient(180deg, #f2eef8, #cfc4dd);
+      box-shadow: 0 0 55px rgba(213, 107, 255, 0.25);
+    }
+
+    .avatar-face::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      right: -34px;
+      top: -62px;
+      height: 128px;
+      border-radius: 60px 60px 25px 25px;
+      background: linear-gradient(135deg, #f8f4ff, #b9acc8 55%, #efe9ff);
+      clip-path: polygon(0 25%, 18% 0, 34% 22%, 52% 0, 73% 24%, 100% 6%, 93% 100%, 3% 100%);
+    }
+
+    .eye {
+      position: absolute;
+      top: 112px;
+      width: 42px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--violet);
+      box-shadow: 0 0 22px var(--purple);
+    }
+
+    .eye.left { left: 58px; }
+    .eye.right { right: 58px; }
+
+    .glitch-mark {
+      position: absolute;
+      right: 76px;
+      top: 142px;
+      width: 28px;
+      height: 42px;
+      background: linear-gradient(var(--purple), transparent);
+      clip-path: polygon(45% 0, 70% 18%, 55% 34%, 90% 50%, 52% 68%, 65% 100%, 25% 72%, 40% 54%, 10% 36%, 38% 22%);
+      filter: drop-shadow(0 0 10px var(--purple));
+      opacity: 0.85;
+    }
+
+    .hood {
+      position: absolute;
+      width: 380px;
+      height: 420px;
+      border-radius: 48% 48% 30% 30%;
+      border: 2px solid rgba(155, 92, 255, 0.28);
+      background: linear-gradient(145deg, #06030d, #160a2c 58%, #090412);
+      z-index: -1;
+      box-shadow: inset 0 0 50px rgba(155,92,255,.12), 0 0 40px rgba(155,92,255,.2);
+    }
+
+    .floating-code {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      right: 22px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: rgba(7, 3, 15, 0.72);
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.7;
+    }
+
+    .floating-code b {
+      color: var(--purple-2);
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: -0.06em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      max-width: 720px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      min-height: 210px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 0 30px rgba(155, 92, 255, 0.08);
+      transition: 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(213,107,255,.55);
+      box-shadow: 0 0 42px rgba(155, 92, 255, 0.18);
+    }
+
+    .card .icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      background: rgba(155, 92, 255, 0.16);
+      color: var(--purple-2);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    .terminal {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      background: rgba(5, 2, 11, 0.88);
+      box-shadow: 0 0 60px rgba(155, 92, 255, 0.12);
+    }
+
+    .terminal-top {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--danger);
+      box-shadow: 0 0 12px currentColor;
+    }
+
+    .dot:nth-child(2) { background: #ffc857; }
+    .dot:nth-child(3) { background: #6dffb3; }
+
+    pre {
+      padding: 24px;
+      overflow-x: auto;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.75;
+    }
+
+    .keyword { color: #d56bff; }
+    .string { color: #9bffdf; }
+    .prop { color: #9b5cff; }
+
+    footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 46px;
+      }
+
+      .avatar-card {
+        min-height: 480px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">
+        <span class="logo-mark">C</span>
+        <span>Cogu</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#skills">Skills</a>
+        <a href="#terminal">Terminal</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <div class="tag">dev.exe // dark fantasy mode</div>
+
+        <h1>
+          <span class="glitch" data-text="Cogu">Cogu</span><br>
+          cria caos<br>
+          em código.
+        </h1>
+
+        <p>
+          Desenvolvedor com estética sombria, alma de anime e energia roxa suficiente
+          pra compilar um RPG bugado dentro da própria madrugada.
+        </p>
+
+        <div class="buttons">
+          <a class="btn btn-primary" href="#skills">Ver habilidades</a>
+          <a class="btn btn-secondary" href="#terminal">Abrir terminal</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>JavaScript</strong>
+            <span>linguagem do caos</span>
+          </div>
+          <div class="stat">
+            <strong>Discord Bots</strong>
+            <span>criações vivas demais</span>
+          </div>
+          <div class="stat">
+            <strong>Roxo Neon</strong>
+            <span>religião visual</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="avatar-card" aria-label="Avatar dark fantasy do Cogu">
+        <div class="avatar">
+          <div class="hood"></div>
+          <div class="avatar-face">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="glitch-mark"></span>
+          </div>
+        </div>
+
+        <div class="floating-code">
+          <b>const</b> creator = {<br>
+          &nbsp;&nbsp;name: <b>'Cogu'</b>,<br>
+          &nbsp;&nbsp;vibe: <b>'dark fantasy glitch'</b>,<br>
+          &nbsp;&nbsp;status: <b>'sleep deprived but powerful'</b><br>
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="container">
+      <h2 class="section-title">Sobre o criador</h2>
+      <p class="section-desc">
+        Cogu é aquele tipo de dev que mistura programação, bot de Discord, estética anime,
+        roxo neon e uma pitada de insanidade criativa. O resultado? Projetos com cara de
+        magia proibida rodando em JavaScript.
+      </p>
+    </section>
+
+    <section id="skills" class="container">
+      <h2 class="section-title">Habilidades</h2>
+      <p class="section-desc">
+        Um kit básico de sobrevivência pra quem nasceu pra codar, quebrar tudo e depois
+        consertar como se fosse parte do plano.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">JS</div>
+          <h3>JavaScript</h3>
+          <p>Automação, bots, interfaces e umas gambiarra mística que funcionam porque sim.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">UI</div>
+          <h3>Interfaces</h3>
+          <p>Layouts escuros, brilho roxo, glitch e aquela vibe de menu secreto de RPG.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">AI</div>
+          <h3>IA & Bots</h3>
+          <p>Personagens digitais, sistemas inteligentes e bots com personalidade demais.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="terminal" class="container">
+      <h2 class="section-title">Terminal</h2>
+      <p class="section-desc">
+        Porque todo dev sombrio precisa de um terminalzinho dramático pra parecer perigoso.
+      </p>
+
+      <div class="terminal">
+        <div class="terminal-top">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <pre><code><span class="keyword">class</span> Cogu {
+  <span class="keyword">constructor</span>() {
+    <span class="keyword">this</span>.<span class="prop">style</span> = <span class="string">'dark fantasy / purple glitch'</span>;
+    <span class="keyword">this</span>.<span class="prop">stack</span> = [<span class="string">'JavaScript'</span>, <span class="string">'Node.js'</span>, <span class="string">'Discord'</span>];
+    <span class="keyword">this</span>.<span class="prop">energy</span> = <span class="string">'café + madrugada + caos'</span>;
+  }
+
+  create() {
+    return <span class="string">'algo fofo, sombrio e perigosamente funcional'</span>;
+  }
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito com código, roxo neon e trauma suficiente pra virar lore.</p>
+  </footer>
+</body>
+</html>

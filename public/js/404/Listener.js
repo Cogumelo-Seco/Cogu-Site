@@ -62,10 +62,10 @@ export default function createListener() {
         //}
     })
 
-    document.getElementById('body').onwheel = (event) => {
+    /* document.getElementById('body').onwheel = (event) => {
         if (event.deltaY < 0) handleKeys({ event: { code: 'WheelUp' }, on: true })
         else handleKeys({ event: { code: 'WheelDown' }, on: true })
-    }
+    } */
 
     window.addEventListener("gamepadconnected", (e) => {
         console.log(

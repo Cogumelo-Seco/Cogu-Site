@@ -33,9 +33,9 @@ function page(props) {
                     user
                 })
 
-                socket.on('dashboard-guilds-return', (serverProps) => {
-                    listGuilds(serverProps)
-                })
+                //socket.on('dashboard-guilds-return', (serverProps) => {
+                    listGuilds(guilds)
+                //})
 
                 let lastCurrent = 0
                 socket.on('dashboard-guilds-return-loading', (serverProps) => {

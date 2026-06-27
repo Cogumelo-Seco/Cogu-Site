@@ -1,5 +1,5 @@
 export default ([ user, router ]) => {
-    const userButtons = document.getElementsByClassName('user-button-image')
+    /* const userButtons = document.getElementsByClassName('user-button-image')
     const language = document.URL.replace('https://', '').replace('http://', '').split('/')[1]
 
     for (let userButton of userButtons) {
@@ -13,7 +13,18 @@ export default ([ user, router ]) => {
 
     document.cookie = `userId=${user.id}; path=/`;
     document.cookie = `alphaToken=${user.alphaToken}; path=/`;
-    document.cookie = `language=${language || 'pt-br'}; path=/`;
+    document.cookie = `language=${language || 'pt-br'}; path=/`; */
 
-    return require('../../lib/data').user = user
+    return {
+        avatarURL: "https://a.png",
+        tag: "cogu",
+        username: "cogu",
+        guilds: [
+            {
+                id: 12,
+                name: "test"
+            }
+        ]
+    }
+    //require('../../lib/data').user = user
 }

@@ -1,5 +1,11 @@
 body, #__next{
-    background: var(--gradient-bg-main);
+    min-height: 100vh;
+    background-color: black;
+    background-image: url(../imgs/backgrounds/Background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: var(--color-text-main);
     font-family: Arial, sans-serif;
     min-height: 100vh;
@@ -10,6 +16,7 @@ body, #__next{
 main {
     flex: 1;
     padding: 20px;
+    margin: 0;
 }
 
 /* SCROLL BAR */

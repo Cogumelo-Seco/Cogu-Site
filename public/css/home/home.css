@@ -17,7 +17,7 @@ div.infoContaner {
     min-height: 50%;
     height: 50vh;
     min-height: fit-content;
-    padding: 7vh 5vw;
+    padding: 7vh 1vw;
     text-align: center;
 }
 
@@ -72,9 +72,11 @@ div.infoContaner > * {
 
 .tags {
     display: flex;
+    flex-wrap: wrap;
     align-items: center ;
     justify-content: center;
-    gap: 10px;
+    gap: 0 10px;
+    width: 100%;
     color: #b66cff;
     font-weight: 600;
     font-size: 1.2rem;

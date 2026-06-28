@@ -4,6 +4,11 @@
         padding: 42px 28px;
         width: 95%;
         left: 2.5%;
+        margin-top: 25px;
+    }
+
+    .terminal {
+        display: none;
     }
 
     .btn {

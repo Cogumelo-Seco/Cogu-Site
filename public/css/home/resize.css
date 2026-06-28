@@ -9,20 +9,34 @@
     }
 }
 
+@media screen and (max-width: 1400px) {
+    div.infoContaner {
+        width: 55%;
+    }
+}
+
 @media screen and (max-width: 1030px) {
     div.infoContaner {
-        left: 0;
-        top: 0;
         width: 100%;
-        height: 53vh;
     }
 
     .glitcTitle {
-        font-size: 7rem;
+        font-size: 6.5rem;
+        margin: 0;
+    }
+
+    .infoSubtitle, .tags {
+        margin: 0;
+        margin-bottom: 10px;
+        width: 100%;
     }
 
     .pixelCard {
         width: 100%;
-        padding: 0 4vw;
+        padding: 0.5vw 5vw;
+    }
+
+    .pixel-arrow {
+        display: none;
     }
 }

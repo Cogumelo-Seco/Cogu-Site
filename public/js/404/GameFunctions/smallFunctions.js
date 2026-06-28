@@ -9,7 +9,7 @@ export default (state, Listener) => {
         checkPlayerCollision: (playerInfo) => {
             if (playerInfo.x == state.fruit.x && playerInfo.y == state.fruit.y) {
                 functions.addFruit()
-                state.playSong('Sounds/up.mp3', { volume: 0.5 })
+                state.playSong('Sounds/up.mp3', { volume: 0.05 })
                 playerInfo.score += 1
             }
     

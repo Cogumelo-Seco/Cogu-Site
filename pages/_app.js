@@ -9,26 +9,6 @@ Router.events.on('routeChangeStart', (url) => {
 Router.events.on('routeChangeComplete', () => NProgress.done())
 Router.events.on('routeChangeError', () => NProgress.done())
 
-function langButtonClick() {
-    const selectLangBox = document.getElementById('selectLangBox')
-
-    if (selectLangBox.style.display == 'flex') {
-        selectLangBox.style.display = 'none'
-    } else {
-        selectLangBox.style.display = 'flex'
-    }
-}
-
-function openCloseMobileHeader(open) {
-    if (open) {
-        document.getElementById('mobile-header').style.display = 'inline-block'
-        document.getElementById('ofuscation').style.display = 'inline-block'
-    } else {
-        document.getElementById('mobile-header').style.display = 'none'
-        document.getElementById('ofuscation').style.display = 'none'
-    }
-}
-
 function App({ Component, pageProps }) {
     return (
         <>
@@ -60,15 +40,6 @@ function App({ Component, pageProps }) {
                     }
                 `}</style>
             </nav>
-
-            <div id="zoom" className="zoom" onClick={(e) => e.target.id == 'zoom' ? e.target.classList.toggle('open') : null}>
-                <div id="zoomContent">
-                    <img id="zoomImage" src="http://localhost:3000/imgs/avatar/Default.png" />
-                    <a id="openOriginal" target="_blank">{pageProps.language == 'pt' || pageProps.language == 'es' ? 'Abrir Original' : 'Open original'}</a>
-                </div>
-            </div>
-            
-            <div class="background"></div>
 
             <header>
                 <div className="headerBox">

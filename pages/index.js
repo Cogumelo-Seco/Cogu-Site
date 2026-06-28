@@ -11,7 +11,7 @@ function page(props) {
     return (
         <main>
             <Head>
-                <title>Home</title>
+                <title>Cogu Home</title>
 
                 <meta property="theme-color" content="#3f0064" />
                 <meta property="og:title" content="Cogu_" />

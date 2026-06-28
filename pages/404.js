@@ -26,7 +26,7 @@ function Err() {
     return (
         <main>
             <Head>
-                <title>404</title>
+                <title>ERROR 404</title>
 
                 <meta property="theme-color" content="#3f0064" />
                 <meta property="og:title" content="Cogu_" />

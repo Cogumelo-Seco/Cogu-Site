@@ -11,13 +11,12 @@ function page(props) {
             if (navlink.innerText == 'Projetos') navlink.className = 'navlink active'
             else navlink.className = 'navlink'
         }
-        
     })
 
     return (
         <main>
             <Head>
-                <title>Projects</title>
+                <title>Cogu Projects</title>
 
                 <meta property="theme-color" content="#3f0064" />
                 <meta property="og:title" content="Cogu_" />
@@ -113,7 +112,26 @@ function page(props) {
                             </svg>
                             <span data-text="Snake 404">Snake 404</span>
                         </h2>
-                        <p>É o jogo da Snake que tem na página de erro 404 desse site :)</p>
+                        <p>É o jogo da Snake que tem na página de erro 404 desse site, criado em JavaScript :)</p>
+                    </div>
+                </a>
+
+                <a class="project-card" target="_blank" href="https://github.com/Cogumelo-Seco/Game-Snake-in-C">
+                    <div class="project-content">
+                        <h2>
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">  
+                                <rect x="8" y="8" width="48" height="48" rx="10" stroke-width="3" opacity="0.35" />
+                                <path d="M20 8V56M32 8V56M44 8V56M8 20H56M8 32H56M8 44H56" stroke-width="1.5" opacity="0.14" />
+                                <path d="M20 44H32C38.6274 44 44 38.6274 44 32V26" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                                <rect x="38" y="14"width="12" height="12" rx="4"/>
+                                <circle cx="46" cy="18" r="1.4" fill="white" opacity="0.9" />
+                                <rect x="14" y="38" width="12" height="12" rx="3" opacity="0.75" />
+                                <circle cx="22" cy="22" r="4" opacity="0.9" />
+                                <rect x="48" y="48" width="3" height="3" rx="1" opacity="0.45" />
+                            </svg>
+                            <span data-text="Snake in C">Snake in C</span>
+                        </h2>
+                        <p>É o jogo da Snake feito puramante em C, a renderização é no console por meio de caracteres.</p>
                     </div>
                 </a>
                 
@@ -164,8 +182,6 @@ function page(props) {
                                 <path d="M16 32h68" />
                                 <path d="M30 48l10 9-10 9" />
                                 <path d="M47 66h18" />
-                                <path d="M62 78l22 8" />
-                                <path d="M66 72l20 3" />
                             </svg>
                             <span data-text="Infinite Run">Infinite Run</span>
                         </h2>
@@ -173,6 +189,21 @@ function page(props) {
                     </div>
                 </a>
 
+                <a class="project-card" target="_blank" href="https://cogu-fogo-do-doom.vercel.app/">
+                    <div class="project-content">
+                        <h2>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M12 22C8.25 22 5 19.35 5 15.4C5 12.45 6.7 10.45 8.35 8.75C9.8 7.25 11.15 5.95 10.75 3C13.95 4.15 16.2 6.8 16.45 10.25C17.35 9.55 18.05 8.55 18.35 7.35C20.15 9.05 21 11.35 21 14.05C21 18.65 17.15 22 12 22Z" stroke-width="1.7" stroke-linejoin="round"/>
+                                <path d="M12.1 18.9C10.15 18.9 8.75 17.55 8.75 15.8C8.75 14.45 9.55 13.45 10.4 12.65C11.2 11.9 11.85 11.05 11.75 9.75C13.85 10.85 15.25 12.55 15.25 15.05C15.25 17.2 13.9 18.9 12.1 18.9Z" stroke-width="1.5" stroke-linejoin="round"/>
+                                <path d="M7 16H5.5M18.5 16H17M9 20L8 21M15 20L16 21" stroke-width="1.3" stroke-linecap="round"/>
+                            </svg>
+                            <span data-text="Fogo do DOOM">Fogo do DOOM</span>
+                        </h2>
+                        <p>Renderização do sistema de fogo do DOOM em JavaScript+Canvas.</p>
+                    </div>
+                </a>
+
+                
                 <a class="project-card" target="_blank" href="https://cogu-projects.vercel.app/minesweeper">
                     <div class="project-content">
                         <h2>
@@ -190,20 +221,6 @@ function page(props) {
                             <span data-text="Campo Minado">Campo Minado</span>
                         </h2>
                         <p>Uma recriação do Campo Minado, não foi muito atualizado, mas foi criado especialmente para teste de buscadores de caminho.</p>
-                    </div>
-                </a>
-
-                <a class="project-card" target="_blank" href="https://cogu-fogo-do-doom.vercel.app/">
-                    <div class="project-content">
-                        <h2>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                <path d="M12 22C8.25 22 5 19.35 5 15.4C5 12.45 6.7 10.45 8.35 8.75C9.8 7.25 11.15 5.95 10.75 3C13.95 4.15 16.2 6.8 16.45 10.25C17.35 9.55 18.05 8.55 18.35 7.35C20.15 9.05 21 11.35 21 14.05C21 18.65 17.15 22 12 22Z" stroke-width="1.7" stroke-linejoin="round"/>
-                                <path d="M12.1 18.9C10.15 18.9 8.75 17.55 8.75 15.8C8.75 14.45 9.55 13.45 10.4 12.65C11.2 11.9 11.85 11.05 11.75 9.75C13.85 10.85 15.25 12.55 15.25 15.05C15.25 17.2 13.9 18.9 12.1 18.9Z" stroke-width="1.5" stroke-linejoin="round"/>
-                                <path d="M7 16H5.5M18.5 16H17M9 20L8 21M15 20L16 21" stroke-width="1.3" stroke-linecap="round"/>
-                            </svg>
-                            <span data-text="Fogo do DOOM">Fogo do DOOM</span>
-                        </h2>
-                        <p>Renderização do sistema de fogo do DOOM em JavaScript+Canvas.</p>
                     </div>
                 </a>
             </section>

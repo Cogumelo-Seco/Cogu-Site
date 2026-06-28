@@ -1,103 +1,75 @@
-/*body {
-    --body-background: rgb(38, 44, 50);
-    --page-border-color: rgb(0, 0, 0);
-    --page-color-1: rgb(13, 19, 25);
-    --item-color-1: rgb(24, 29, 39);
-    --item-color-1-h: rgb(34, 39, 49);
-    --item-color-2: rgb(68, 74, 85);
-    --item-color-2-h: rgb(83, 68, 94);
-    --item-color-3: rgb(30, 31, 38);
-    --item-color-3-h: rgb(46, 36, 48);
-    --item-color-4: rgb(47, 52, 60);
-    --item-color-4-h: rgb(68, 55, 75);
-    --item-button-color-1: rgb(39, 44, 55);
-    --item-button-color-1-h: rgb(62, 49, 65);
-    --body-background: rgb(45, 45, 45);
-    --page-color-1: rgb(10, 10, 10);
-    --page-border-color: rgb(30, 30, 30);
-    --item-color-1: rgb(25, 25, 25);
-    --item-color-1-h: rgb(20, 20, 30);
-    --item-color-2: rgb(54, 57, 63);
-    --item-color-2-h: rgb(49, 52, 68);
-    --item-color-3: rgb(34, 34, 34);
-    --item-color-3-h: rgb(29, 29, 39);
-    --item-color-4: rgb(60, 60, 60);
-    --item-color-4-h: rgb(55, 55, 75);
-    --item-button-color-1: rgb(55, 55, 55);
-    --item-button-color-1-h: rgb(40, 40, 70);
-}*/
-
 :root {
-  /* =========================
-     Alis / AI Guardian Theme
-  ========================= */
-  /* Header / Navigation 
-  
-  --gradient-header: linear-gradient(90deg, #05030E 0%, #040309 100%);*/
+    /* Header / Navigation 
+    
+    --gradient-header: linear-gradient(90deg, #05030E 0%, #040309 100%);*/
 
-  
-  --gradient-header: linear-gradient(0deg, #0000005b 0%, #000000 100%);
-  --header-border: #2d005e;
-  /*--gradient-header-border: linear-gradient(90deg, #8A5BAC 0%, #1A1826 50%, #302448 100%);*/
-  --underline-header: #D399FF;
-  --underline-header-shadow: 0 -4px 20px 4px #D399FF;
-  --link-hover-shadow: 0 0 20px #D399FF;
+    
+    --gradient-header: linear-gradient(0deg, #0000005b 0%, #000000 100%);
+    --header-border: #2d005e;
+    /*--gradient-header-border: linear-gradient(90deg, #8A5BAC 0%, #1A1826 50%, #302448 100%);*/
+    --underline-header: #D399FF;
+    --underline-header-shadow: 0 -4px 20px 2px #D399FF;
+    --link-hover-shadow: 0 0 20px #D399FF;
 
-  /* Buttons */
-  --radial-gradient-button: radial-gradient(circle, #560FCD 0%, #8015EF 100%);
+    /* Buttons */
+    --radial-gradient-button: radial-gradient(circle, #560FCD 0%, #8015EF 100%);
 
-  /* Backgrounds */
-  --color-bg-void: #07060D;
-  --color-bg-night: #100B1F;
-  --color-bg-deep: #1A102E;
-  --color-bg-card: #100B1F;
-  --color-bg-card-alt: #1A102E;
+    /* Backgrounds */
+    --color-bg-void: #07060D;
+    --color-bg-night: #100B1F;
+    --color-bg-deep: #1A102E;
+    --color-bg-card: #100B1F;
+    --color-bg-card-alt: #1A102E;
 
-  /* Purple aura */
-  --color-primary: #7B2CFF;
-  --color-primary-hover: #9D5CFF;
-  --color-primary-soft: #C7A6FF;
+    /* Purple aura */
+    --color-primary: #7B2CFF;
+    --color-primary-hover: #9D5CFF;
+    --color-primary-soft: #C7A6FF;
 
-  /* Text */
-  --color-text-main: #F1EAFE;
-  --color-text-secondary: #AFA3C7;
-  --color-text-muted: #6F6388;
+    /* Text */
+    --color-text-main: #F1EAFE;
+    --color-text-secondary: #AFA3C7;
+    --color-text-muted: #6F6388;
 
-  --color-text-glitch-1: #ff00ff;
-  --color-text-glitch-2: #00eaff;
+    --color-text-glitch-1: #ff00ff;
+    --color-text-glitch-2: #00eaff;
 
-  /* Borders */
-  --color-border: #3A275C;
-  --color-border-soft: rgba(157, 92, 255, 0.25);
-  --color-border-glow: rgba(123, 44, 255, 0.55);
+    --color-text-purple: #bd5cff;
 
-  /* Relic / premium details */
-  --color-gold: #FFD98A;
-  --color-gold-old: #B88A4A;
+    /* Borders */
+    --color-border: #8f3dff;
+    --color-border-hover: #c084ff;
+    --color-border-soft: rgba(157, 92, 255, 0.25);
+    --color-border-glow: rgba(123, 44, 255, 0.55);
 
-  /* Corruption / glitch */
-  --color-corruption: #FF3D8A;
-  --color-cyber: #38F2FF;
+    /* Relic / premium details */
+    --color-gold: #FFD98A;
+    --color-gold-old: #B88A4A;
 
-  /* Shadows / glows */
-  --shadow-purple-soft: 0 0 18px rgba(123, 44, 255, 0.25);
-  --shadow-purple-strong: 0 0 32px rgba(123, 44, 255, 0.45);
-  --shadow-corruption: 0 0 22px rgba(255, 61, 138, 0.35);
+    /* Corruption / glitch */
+    --color-corruption: #FF3D8A;
+    --color-cyber: #38F2FF;
 
-  /* Gradients */
-  --gradient-bg-main: linear-gradient(135deg, #07060D 0%, #100B1F 55%, #1A102E 100%);
-  /*--gradient-header: linear-gradient(90deg, #100B1F 0%, #1A102E 100%);*/
-  --gradient-card: linear-gradient(145deg, rgba(26, 16, 46, 0.95), rgba(16, 11, 31, 0.95));
-  --gradient-primary: linear-gradient(135deg, #7B2CFF, #9D5CFF);
-  --gradient-corrupted: linear-gradient(135deg, #7B2CFF, #FF3D8A);
+    /* Shadows / glows */
+    --shadow-purple-soft: 0 0 18px rgba(123, 44, 255, 0.25);
+    --shadow-purple-strong: 0 0 32px rgba(123, 44, 255, 0.45);
+    --button-shadow: 0 0 12px rgba(145, 61, 255, 0.75),
+          inset 0 0 18px rgba(122, 45, 255, 0.18);
 
-  /* Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+    /* Gradients */
+    --gradient-bg-main: linear-gradient(135deg, #07060D 0%, #100B1F 55%, #1A102E 100%);
+    /*--gradient-header: linear-gradient(90deg, #100B1F 0%, #1A102E 100%);*/
+    --gradient-card: linear-gradient(145deg, rgba(26, 16, 46, 0.95), rgba(16, 11, 31, 0.95));
+    --gradient-primary: linear-gradient(135deg, #7B2CFF, #9D5CFF);
+    --gradient-corrupted: linear-gradient(135deg, #7B2CFF, #FF3D8A);
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-normal: 250ms ease;
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
 }

@@ -1,12 +1,15 @@
-@keyframes loadingCircle {    
-    to {
-        transform: rotateY(360deg)
-    }
+@keyframes footerCursorBlink {
+    0%, 45% { opacity: 1; }
+    46%, 100% { opacity: 0; }
 }
 
-@keyframes openZoom {
-    to {
+@keyframes footerStatusPulse {
+    0%, 100% {
+        text-shadow: 0 0 6px #a000ff;
+        opacity: 0.75;
+    }
+    50% {
+        text-shadow: 0 0 12px #ff00ff, 0 0 22px #9b00ff;
         opacity: 1;
-        transform: scale(100%);
     }
 }

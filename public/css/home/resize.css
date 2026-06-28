@@ -1,14 +1,3 @@
-
-@media screen and (max-width: 1360px) {
-    .pixelCard {
-        height: 250px;
-    }
-    
-    .pixel-text h2 {
-        margin: 0 0 5px;
-    }
-}
-
 @media screen and (max-width: 1400px) {
     div.infoContaner {
         width: 55%;
@@ -33,10 +22,14 @@
 
     .pixelCard {
         width: 100%;
-        padding: 0.5vw 5vw;
+        padding: 5vw;
     }
 
-    .pixel-arrow {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .avatar-panel {
         display: none;
     }
 }

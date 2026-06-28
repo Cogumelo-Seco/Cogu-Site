@@ -1,4 +1,97 @@
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.avatar-panel {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    padding: 10px;
+    border: 2px solid var(--color-border);
+    box-shadow: var(--button-shadow);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .5s;
+
+    clip-path: polygon(
+        25px 0,
+        calc(100% - 25px) 0,
+        100% 25px,
+        100% calc(100% - 25px),
+        calc(100% - 25px) 100%,
+        25px 100%,
+        0 calc(100% - 25px),
+        0 25px
+    );
+    
+    background:
+        radial-gradient(circle at 20% 120%, rgba(160, 70, 255, 0.18), transparent 35%),
+        linear-gradient(135deg, rgba(20, 12, 32, 0.96), rgba(8, 5, 15, 0.98));
+    
+    background: url(../../imgs/Texture/button-dark.png) center;
+    background-size: 1000px;
+    animation: avatarImageBackground 4s;
+}
+
+.avatar-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    height: 200%;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, .04) 0px,
+        rgba(255, 255, 255, .04) 1px,
+        transparent 1px,
+        transparent 6px
+    );
+    mix-blend-mode: screen;
+    animation: avatarImageGlitchAnim 3s infinite linear;
+}
+
+.avatar-panel:hover:before {
+    scale: 1.2;
+}
+
+.avatar-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(90deg, transparent, rgba(174, 0, 255, 0.55), transparent),
+    linear-gradient(90deg, rgba(255, 0, 90, 0.18), transparent, rgba(0, 180, 255, 0.18));
+
+    mix-blend-mode: screen;
+    animation: glitchSlices 2s steps(1) infinite;
+}
+
+.avatar-panel:hover {
+    scale: 1.01;
+    border-color: var(--color-border-hover);
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter:
+        contrast(1.1)
+        saturate(1.15)
+        brightness(0.82);
+    animation: avatarIntroImageAnim 4s, avatarImageAnim 10s infinite;
+}
+
 div.infoContaner {
+    cursor: default;
     background: radial-gradient(
         circle at center,
         rgb(0, 0, 0) 0%,
@@ -94,7 +187,7 @@ div.infoContaner > * {
 
 .tags span:not(:last-child)::after {
     content: "•";
-    color: #c084ff;
+    color: var(--color-border-hover);
     text-shadow:
         0 0 6px #a855f7,
         0 0 12px #7c3aed;
@@ -115,10 +208,9 @@ div.cardsContainer {
 .pixelCard {
     position: relative;
     width: 30vw;
-    min-height: 220px;
+    min-height: 230px;
     display: flex;
-    align-items: center;
-    padding: 0 2vw;
+    padding: 2vw;
     text-decoration: none;
     color: #d9c9ff;
 
@@ -129,10 +221,8 @@ div.cardsContainer {
     background: url(../../imgs/Texture/button-dark.png) center;
     background-size: 600px;
 
-    border: 2px solid #8f3dff;
-    box-shadow:
-        0 0 12px rgba(145, 61, 255, 0.75),
-        inset 0 0 18px rgba(122, 45, 255, 0.18);
+    border: 2px solid var(--color-border);
+    box-shadow: var(--button-shadow);
 
     clip-path: polygon(
         18px 0,
@@ -187,7 +277,7 @@ div.cardsContainer {
 
 .pixelCard:hover {
     transform: translateY(-4px) scale(1.01);
-    border-color: #c084ff;
+    border-color: var(--color-border-hover);
     box-shadow:
         0 0 22px rgba(177, 92, 255, 0.95),
         0 0 48px rgba(117, 38, 255, 0.45),
@@ -195,40 +285,54 @@ div.cardsContainer {
 }
 
 .pixel-text h2 {
-    position: relative;
-    margin: 0 0 18px;
+    margin: 0 0 20px;
     font-size: 42px;
-    color: #bd5cff;
-    text-shadow: 0 0 8px #a83cff;
 }
 
-.pixel-text h2::before,
-.pixel-text h2::after {
+.pixel-text h2 svg {
+    transform: translateY(5px);
+    height: 40px;
+    width: 40px;
+    padding: 2px;
+    margin-right: 15px;
+    border-radius: 100%;
+    color: var(--color-text-purple);
+}
+
+
+.pixel-text h2 span {
+    position: relative;
+    color: var(--color-text-purple);
+    text-shadow: 0 0 5px #a83cff;
+}
+
+.pixel-text h2 span::before,
+.pixel-text h2 span::after {
     content: attr(data-text);
     position: absolute;
     left: 0;
     top: 0;
 }
 
-.pixel-text h2::before {
+.pixel-text h2 span::before {
     z-index: -1;
     color: var(--color-text-glitch-1);
     transform: translateX(-1px) translateY(-1px);
 }
 
-.pixel-text h2::after {
+.pixel-text h2 span::after {
     z-index: -2;
     color: var(--color-text-glitch-2);
     transform: translateX(1px) translateY(1px);
 }
 
-.pixelCard:hover .pixel-text h2::before { transform: translateX(-2px) translateY(-2px) }
-.pixelCard:hover .pixel-text h2::after { transform: translateX(2px) translateY(2px) }
+.pixelCard:hover .pixel-text h2 span::before { transform: translateX(-2px) translateY(-2px) }
+.pixelCard:hover .pixel-text h2 span::after { transform: translateX(2px) translateY(2px) }
 
 .pixel-text p {
     max-width: 360px;
     margin: 0;
-    font-size: 23px;
+    font-size: 1.2rem;
     line-height: 1.45;
     color: #cfc2df;
 }
@@ -243,3 +347,27 @@ div.cardsContainer {
         0 0 8px #b85cff,
         0 0 18px #b85cff;
 }
+
+
+
+
+
+
+
+
+/* 
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 60px 6%;
+  }
+
+  .avatar-panel {
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(4rem, 22vw, 7rem);
+  }
+} */

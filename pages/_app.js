@@ -87,8 +87,15 @@ function App({ Component, pageProps }) {
                 <Component {...pageProps} />
             </CookiesProvider>
 
-            <footer>
-                <p onClick={() => open('https://github.com/Cogumelo-Seco')} >{pageProps.language == 'pt' ? 'Feito por Cogu 💜' : pageProps.language == 'es' ? 'Hecho por Cogu 💜' : 'Made by Cogu 💜'}</p>
+            <footer onClick={() => open('https://github.com/Cogumelo-Seco')}>
+                <span className="line"></span>
+                
+                <span class="footer-cursor">&gt;_</span>
+                <span class="footer-glitch">USER: COGU</span>
+                <span>|</span>
+                <span>MODE: CREATOR</span>
+                <span>|</span>
+                <span class="footer-status">STATUS: ONLINE</span>
             </footer>
         </>
     )

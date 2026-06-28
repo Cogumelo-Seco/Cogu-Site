@@ -1,13 +1,26 @@
-body, #__next{
+body, #__next {
     background-color: black;
-    background-image: url(../imgs/backgrounds/Background1.png);
+    background-image: url(../imgs/backgrounds/Background2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+
+    /* 
+    background:
+        radial-gradient(circle at 25% 25%, rgba(174, 0, 255, 0.18), transparent 35%),
+        radial-gradient(circle at 75% 80%, rgba(91, 0, 180, 0.14), transparent 40%),
+        linear-gradient(rgba(180, 70, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(180, 70, 255, 0.035) 1px, transparent 1px),
+        #050008;
+    background-size: auto, auto, 48px 48px, 48px 48px, auto; */
+
+    overflow-x: hidden;
+
     color: var(--color-text-main);
     font-family: Arial, sans-serif;
     width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }

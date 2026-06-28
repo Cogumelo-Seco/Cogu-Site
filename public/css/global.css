@@ -1,5 +1,4 @@
 body, #__next{
-    min-height: 100vh;
     background-color: black;
     background-image: url(../imgs/backgrounds/Background1.png);
     background-size: cover;
@@ -8,7 +7,7 @@ body, #__next{
     background-attachment: fixed;
     color: var(--color-text-main);
     font-family: Arial, sans-serif;
-    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }

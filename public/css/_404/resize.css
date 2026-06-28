@@ -2,8 +2,8 @@
 @media (max-width: 980px) {
     .error-card {
         padding: 42px 28px;
-        width: 100%;
-        left: 0;
+        width: 95%;
+        left: 2.5%;
     }
 
     .btn {

@@ -27,6 +27,7 @@
 
 .error-card {
     position: absolute;
+    overflow: hidden;
     width: min(690px, 100%);
     left: 10%;
     top: 50%;

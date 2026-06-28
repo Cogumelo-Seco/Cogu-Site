@@ -25,6 +25,10 @@
         padding: 5vw;
     }
 
+    .pixel-arrow {
+        display: none;
+    }
+    
     .hero {
         grid-template-columns: 1fr;
     }

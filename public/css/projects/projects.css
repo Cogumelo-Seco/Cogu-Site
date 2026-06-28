@@ -233,3 +233,9 @@
     margin-left: 10px;
     padding-bottom: 5px;
 }
+
+button,
+a,
+div {
+  touch-action: pan-y manipulation;
+}

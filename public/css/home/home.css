@@ -352,26 +352,8 @@ div.cardsContainer {
         0 0 18px #b85cff;
 }
 
-
-
-
-
-
-
-
-/* 
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 60px 6%;
-  }
-
-  .avatar-panel {
-    display: none;
-  }
-
-  .hero-content h1 {
-    font-size: clamp(4rem, 22vw, 7rem);
-  }
-} */
+button,
+a,
+div {
+  touch-action: pan-y manipulation;
+}

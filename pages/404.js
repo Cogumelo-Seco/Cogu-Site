@@ -26,14 +26,14 @@ function Err() {
     return (
         <main>
             <Head>
-                <title>Cogu Site</title>
+                <title>404</title>
 
-                <meta property="theme-color" content="#010101" />
-                <meta property="og:title" content="CoguBot" />
+                <meta property="theme-color" content="#3f0064" />
+                <meta property="og:title" content="Cogu_" />
                 <meta property="og:site_name" content="Cogu Site" />
-                <meta property="og:url" content="https://cogu.vercel.app/br" />                
-                <meta property="og:image" content="/avatar/Roxo.png" />
-                <meta property="og:description" content="Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!" />
+                <meta property="og:url" content="https://cogu.vercel.app/" />                
+                <meta property="og:image" content="/Cogu-avatar/Default.png" />
+                <meta property="og:description" content="Programador, criador de bots e projetos digitais com estética dark fantasy, glitch e roxo." />
             </Head>
             <head>
                 <link rel="stylesheet" href="/css/_404/animations.css" />

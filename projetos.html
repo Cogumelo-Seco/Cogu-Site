@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cogu | Projetos</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+
+    :root {
+      --bg: #020006;
+      --panel: rgba(8, 4, 18, 0.76);
+      --purple: #b84cff;
+      --purple-2: #7b1cff;
+      --pink: #ff38ff;
+      --cyan: #00eaff;
+      --text: #f7edff;
+      --muted: #cbb9dc;
+      --green: #38ff88;
+      --line: rgba(184, 76, 255, 0.9);
+      --glow: 0 0 12px rgba(184, 76, 255, .95), 0 0 28px rgba(123, 28, 255, .55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 75% 20%, rgba(111, 0, 255, .22), transparent 32%),
+        radial-gradient(circle at 15% 75%, rgba(72, 0, 160, .18), transparent 30%),
+                linear-gradient(180deg, #030009 0%, #000 100%);
+      font-family: 'Share Tech Mono', monospace;
+    }
+
+    /* Fundo glitch parecido com tua home */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .46;
+      background-image:
+        linear-gradient(rgba(184, 76, 255, .055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184, 76, 255, .045) 1px, transparent 1px),
+        radial-gradient(circle, rgba(184, 76, 255, .9) 1px, transparent 1.6px);
+      background-size: 100% 4px, 54px 54px, 86px 86px;
+      mix-blend-mode: screen;
+      animation: bgMove 14s linear infinite;
+    }
+
+    body::after {
+      content: "0xCOGU\A FF A7 3C\A > run build.exe\A glitch://ERROR_\A void x_\A 0xDEAB";
+      white-space: pre;
+      position: fixed;
+      inset: 0;
+      padding: 120px 32px;
+      pointer-events: none;
+      color: rgba(151, 43, 255, .24);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 18px;
+            line-height: 2.2;
+      text-shadow: 0 0 12px rgba(184, 76, 255, .8);
+      opacity: .55;
+    }
+
+    @keyframes bgMove {
+      from { background-position: 0 0, 0 0, 0 0; }
+      to { background-position: 0 120px, 70px 40px, -120px 160px; }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(1640px, calc(100% - 64px));
+      margin: 12px auto 0;
+      min-height: 100vh;
+      padding-bottom: 92px;
+    }
+
+    /* Navbar */
+    .navbar {
+      height: 58px;
+      padding: 0 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(6, 2, 14, .72);
+      border: 1px solid var(--line);
+      box-shadow: var(--glow), inset 0 0 24px rgba(123, 28, 255, .15);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: white;
+      text-shadow: var(--glow);
+    }
+
+    .menu {
+      display: flex;
+            gap: 34px;
+      list-style: none;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      position: relative;
+      text-shadow: 0 0 10px rgba(255,255,255,.55);
+    }
+
+    .menu a.active {
+      color: #fff;
+      text-shadow: var(--glow);
+    }
+
+    .menu a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 3px;
+      background: var(--purple);
+      box-shadow: var(--glow);
+    }
+
+    /* Hero */
+    .hero {
+      margin-top: 68px;
+      margin-left: clamp(8px, 6vw, 140px);
+    }
+
+    .glitch-title {
+      position: relative;
+      display: inline-block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(42px, 6vw, 94px);
+      letter-spacing: -4px;
+      color: white;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 10px #fff,
+        0 0 22px var(--purple),
+        0 0 42px var(--purple-2);
+      filter: drop-shadow(0 0 18px rgba(184, 76, 255, .8));
+          }
+
+    .glitch-title::before,
+    .glitch-title::after {
+      content: attr(data-text);
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .75;
+    }
+
+    .glitch-title::before {
+      color: var(--cyan);
+      transform: translate(-5px, 5px);
+      clip-path: inset(45% 0 35% 0);
+      animation: glitchA 2.2s infinite steps(2, end);
+    }
+
+    .glitch-title::after {
+      color: var(--pink);
+      transform: translate(5px, -3px);
+      clip-path: inset(12% 0 72% 0);
+      animation: glitchB 1.8s infinite steps(2, end);
+    }
+
+    @keyframes glitchA {
+      0%, 100% { transform: translate(-4px, 3px); }
+      30% { transform: translate(7px, -2px); }
+      55% { transform: translate(-10px, 4px); }
+    }
+
+    @keyframes glitchB {
+      0%, 100% { transform: translate(4px, -2px); }
+      35% { transform: translate(-8px, 2px); }
+      60% { transform: translate(9px, 5px); }
+    }
+
+    .subtitle {
+      margin-top: 22px;
+      max-width: 860px;
+      font-size: 21px;
+            color: white;
+      text-shadow: 0 0 8px rgba(255,255,255,.35);
+    }
+
+    .tags {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      color: #d783ff;
+      font-size: 20px;
+      font-weight: 700;
+      text-shadow: var(--glow);
+    }
+
+    .tags span:not(:last-child)::after {
+      content: "•";
+      margin-left: 14px;
+      color: white;
+      text-shadow: var(--glow);
+    }
+
+    /* Grid */
+    .projects-grid {
+      margin: 58px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px 46px;
+      width: min(1490px, 100%);
+    }
+
+    .project-card {
+      position: relative;
+      min-height: 220px;
+      padding: 34px 34px 26px;
+      display: grid;
+      grid-template-columns: 105px 1fr;
+      gap: 24px;
+      align-items: start;
+      color: white;
+      text-decoration: none;
+      background:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+                var(--panel);
+      background-size: 100% 5px, 48px 48px, auto;
+      border: 1px solid var(--line);
+      box-shadow:
+        var(--glow),
+        inset 0 0 25px rgba(184, 76, 255, .12);
+      clip-path: polygon(
+        22px 0,
+        calc(100% - 36px) 0,
+        calc(100% - 18px) 18px,
+        100% 18px,
+        100% calc(100% - 22px),
+        calc(100% - 22px) 100%,
+        18px 100%,
+        0 calc(100% - 18px),
+        0 22px
+      );
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      border-bottom: 1px solid rgba(184, 76, 255, .45);
+      pointer-events: none;
+      opacity: .7;
+    }
+
+    .project-card::after {
+      content: ">_";
+      position: absolute;
+      right: 28px;
+      bottom: 20px;
+      color: #f06cff;
+      font-size: 38px;
+      font-weight: 900;
+            text-shadow: var(--glow);
+      transition: transform .18s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: #f06cff;
+      box-shadow:
+        0 0 18px rgba(240, 108, 255, 1),
+        0 0 38px rgba(123, 28, 255, .75),
+        inset 0 0 32px rgba(184, 76, 255, .2);
+    }
+
+    .project-card:hover::after {
+      transform: translateX(6px);
+    }
+
+    .project-icon {
+      color: #e580ff;
+      filter: drop-shadow(0 0 12px rgba(184, 76, 255, .9));
+    }
+
+    .project-icon svg {
+      width: 100px;
+      height: 100px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .project-content h2 {
+      margin-bottom: 18px;
+      font-size: clamp(28px, 2.2vw, 42px);
+      line-height: 1;
+      color: #f7dcff;
+      text-shadow:
+        0 0 8px white,
+        0 0 16px var(--purple),
+        0 0 28px var(--pink);
+    }
+
+    .project-content p {
+      max-width: 360px;
+            color: var(--text);
+      font-size: 19px;
+      line-height: 1.4;
+      text-shadow: 0 0 8px rgba(255,255,255,.25);
+    }
+
+    .status {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      padding: 8px 18px;
+      color: #ff58ff;
+      border: 1px solid var(--purple);
+      border-radius: 4px;
+      background: rgba(16, 4, 32, .78);
+      font-size: 17px;
+      text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(184, 76, 255, .65);
+    }
+
+    .status.online {
+      color: var(--green);
+      border-color: var(--green);
+      box-shadow: 0 0 10px rgba(56, 255, 136, .5);
+    }
+
+    /* Footer */
+    .footer {
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f15cff;
+      background: rgba(0,0,0,.62);
+      border-top: 1px solid rgba(184, 76, 255, .7);
+      text-shadow: var(--glow);
+      font-weight: 700;
+            letter-spacing: 1px;
+    }
+
+    /* Responsivo */
+    @media (max-width: 1180px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 24px, 1640px);
+      }
+
+      .navbar {
+        padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .menu {
+        gap: 18px;
+      }
+
+      .menu a {
+        font-size: 16px;
+      }
+
+      .hero {
+        margin-top: 50px;
+        margin-left: 4px;
+      }
+
+      .glitch-title {
+        letter-spacing: -2px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .tags {
+        font-size: 17px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .project-card {
+        grid-template-columns: 76px 1fr;
+        padding: 28px 24px 70px;
+      }
+
+      .project-icon svg {
+        width: 74px;
+        height: 74px;
+      }
+
+      .project-content h2 {
+        font-size: 30px;
+              }
+
+      .project-content p {
+        font-size: 17px;
+      }
+
+      .footer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <nav class="navbar">
+      <div class="logo">Cogu</div>
+
+      <ul class="menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a class="active" href="projetos.html">Projetos</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <h1 class="glitch-title" data-text="Projetos">Projetos</h1>
+      <p class="subtitle">
+        Ideias que passaram pelo caos, sobreviveram aos bugs e viraram código.
+      </p>
+
+      <div class="tags">
+        <span>Dev</span>
+        <span>Bots</span>
+        <span>Games</span>
+        <span>PixelGlitch</span>
+        <span>DarkFantasy</span>
+      </div>
+    </section>
+
+    <section class="projects-grid">
+      <a class="project-card" href="#">
+        <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <rect x="19" y="30" width="62" height="44" rx="8" />
+                        <rect x="30" y="42" width="40" height="22" rx="5" />
+            <path d="M40 53h-8m36 0h-8" />
+            <path d="M45 53c3 4 7 4 10 0" />
+            <path d="M50 30V18" />
+            <circle cx="50" cy="15" r="5" />
+            <path d="M19 50h-8m78 0h-8" />
+          </svg>
+        </div>
+        <div class="project-content">
+          <h2>CoguBot</h2>
+          <p>Bot de Discord com comandos, sistemas e caos automatizado.</p>
+        </div>
+        <span class="status online">Online</span>
+      </a>
+
+      <a class="project-card" href="#">
+        <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <path d="M58 18v45" />
+            <path d="M58 18l28-8v17l-28 8" />
+            <ellipse cx="45" cy="66" rx="13" ry="9" transform="rotate(-18 45 66)" />
+            <path d="M19 72l-9-9 9-9" />
+            <path d="M81 54l9 9-9 9" />
+            <path d="M38 83V49m0 0l-8 8m8-8l8 8" />
+          </svg>
+        </div>
+        <div class="project-content">
+                      <h2>Glitchbound Funk</h2>
+          <p>Jogo de ritmo inspirado em Friday Night Funkin’, com identidade própria.</p>
+        </div>
+        <span class="status">Em dev</span>
+      </a>
+
+      <a class="project-card" href="#">
+        <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <path d="M50 18l16 9v18l-16 9-16-9V27z" />
+            <path d="M34 27l16 9 16-9" />
+            <path d="M50 36v18" />
+            <path d="M24 68l14 8v16l-14 8-14-8V76z" transform="translate(0 -10)" />
+            <path d="M76 68l14 8v16l-14 8-14-8V76z" transform="translate(0 -10)" />
+            <path d="M50 54v15M50 69l-26 10M50 69l26 10" />
+            <circle cx="50" cy="69" r="3" />
+          </svg>
+        </div>
+        <div class="project-content">
+          <h2>Neural Blocks</h2>
+          <p>Rede neural evolutiva onde blocos aprendem a sobreviver.</p>
+        </div>
+        <span class="status">Experimento</span>
+      </a>
+
+      <a class="project-card" href="#">
+                <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <path d="M8 50s16-26 42-26 42 26 42 26-16 26-42 26S8 50 8 50z" />
+            <circle cx="50" cy="50" r="12" />
+            <path d="M50 29v42" />
+            <path d="M43 50h14" />
+            <path d="M22 50h-8m72 0h-8" />
+          </svg>
+        </div>
+        <div class="project-content">
+          <h2>Alis Core</h2>
+          <p>IA criada por Cogu, nascida de código e personalidade roxa.</p>
+        </div>
+        <span class="status">Ativa</span>
+      </a>
+
+      <a class="project-card" href="#">
+        <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <rect x="34" y="44" width="52" height="34" rx="4" />
+            <path d="M44 58l-7 7 7 7" />
+            <path d="M60 58l7 7-7 7" />
+            <path d="M48 72l8-16" />
+            <path d="M18 74l15-15" />
+            <path d="M23 69l-7-7 16-16 7 7z" />
+            <path d="M66 24l10-10m-2 22l12-2m-28-8l-2-12" />
+                      </svg>
+        </div>
+        <div class="project-content">
+          <h2>Pixel Tools</h2>
+          <p>Ferramentas e testes para pixel art, interfaces e protótipos.</p>
+        </div>
+        <span class="status">Lab</span>
+      </a>
+
+      <a class="project-card" href="#">
+        <div class="project-icon">
+          <svg viewBox="0 0 100 100">
+            <rect x="16" y="18" width="68" height="56" rx="4" />
+            <path d="M16 32h68" />
+            <path d="M30 48l10 9-10 9" />
+            <path d="M47 66h18" />
+            <path d="M62 78l22 8" />
+            <path d="M66 72l20 3" />
+          </svg>
+        </div>
+        <div class="project-content">
+          <h2>Void Terminal</h2>
+          <p>Experimentos visuais com terminal, glitch e dark fantasy.</p>
+        </div>
+        <span class="status">Conceito</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    &gt;_ USER: COGU | PAGE: PROJETOS | STATUS: BUILDING
+  </footer>
+</body>
+</html>

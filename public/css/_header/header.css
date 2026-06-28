@@ -51,20 +51,11 @@ div.headerBox {
     animation: underlineAnimation .5s infinite ease-in-out alternate;
 }
 
-@keyframes underlineAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
 .nav-links {
     display: flex;
     gap: 22px;
     font-size: 1.1rem;
-    
+    font-family: 'Share Tech Mono', monospace;
 }
 
 .nav-links a {

@@ -34,7 +34,7 @@ function App({ Component, pageProps }) {
         <>
             <Head>
                 <link rel="shortcut icon" href="/imgs/Cogu-avatar/Default.png" />
-                <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+                <link rel="mask-icon" href="/imgs/Cogu-avatar/Default.png" color="#905bd5" />
             </Head>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>

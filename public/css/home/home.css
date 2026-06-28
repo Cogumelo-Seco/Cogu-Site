@@ -124,7 +124,7 @@ div.infoContaner > * {
     font-size: 8rem;
     font-weight: 900;
     letter-spacing: 4px;
-    color: #f3e8ff;
+    color: var(--color-text-main);
     text-transform: uppercase;
 
     text-shadow:
@@ -141,25 +141,25 @@ div.infoContaner > * {
     left: 0;
     width: 100%;
     overflow: hidden;
-    color: #f3e8ff;
+    color: var(--color-text-main);
 }
 
 .glitcTitle::before {
     left: 3px;
     text-shadow: -3px 0 var(--color-text-glitch-1);
-    animation: glitch-1 1.5s infinite linear alternate-reverse;
+    animation: glitch-1 1.5s infinite steps(1);
 }
 
 .glitcTitle::after {
     left: -3px;
     text-shadow: 3px 0 var(--color-text-glitch-2);
-    animation: glitch-2 1.2s infinite linear alternate-reverse;
+    animation: glitch-2 1s infinite steps(1);
 }
 
 .infoSubtitle {
     margin: 0 10%;
     font-size: 1.2rem;
-    font-family: monospace;
+    font-family: 'Share Tech Mono', monospace;
     margin-bottom: 2vh;
 }
 
@@ -176,8 +176,9 @@ div.infoContaner > * {
     text-shadow:
         0 0 6px #8b3dff,
         0 0 12px #6d22ff;
-    font-family: monospace;
+    font-family: 'Share Tech Mono', monospace;
 }
+
 
 .tags span {
     display: flex;
@@ -203,6 +204,7 @@ div.cardsContainer {
     margin-top: 6vh;
     height: 50%;
     width: 100%;
+    font-family: 'Share Tech Mono', monospace;
 }
 
 .pixelCard {
@@ -286,7 +288,7 @@ div.cardsContainer {
 
 .pixel-text h2 {
     margin: 0 0 20px;
-    font-size: 42px;
+    font-size: 35px;
 }
 
 .pixel-text h2 svg {
@@ -302,6 +304,7 @@ div.cardsContainer {
 
 .pixel-text h2 span {
     position: relative;
+    display: inline-block;
     color: var(--color-text-purple);
     text-shadow: 0 0 5px #a83cff;
 }
@@ -312,6 +315,7 @@ div.cardsContainer {
     position: absolute;
     left: 0;
     top: 0;
+    transition: all .1s linear;
 }
 
 .pixel-text h2 span::before {

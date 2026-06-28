@@ -1,0 +1,13 @@
+@media screen and (max-width: 1200px) { .projects-grid {grid-template-columns: repeat(2, 1fr) } }
+@media screen and (max-width: 750px) { 
+    .projects-grid { 
+        grid-template-columns: repeat(1, 1fr) 
+    }
+
+    .project-card {
+        padding: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 800px) { .glitch-title { font-size: 4rem } }
+@media screen and (max-width: 670px) { .glitch-title { font-size: 3rem } }

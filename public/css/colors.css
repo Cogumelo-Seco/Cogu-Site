@@ -31,11 +31,17 @@
   /* =========================
      Alis / AI Guardian Theme
   ========================= */
-  /* Header / Navigation */
-  --gradient-header: linear-gradient(90deg, #05030E 0%, #040309 100%);
-  --gradient-header-border: linear-gradient(90deg, #8A5BAC 0%, #1A1826 50%, #302448 100%);
+  /* Header / Navigation 
+  
+  --gradient-header: linear-gradient(90deg, #05030E 0%, #040309 100%);*/
+
+  
+  --gradient-header: linear-gradient(0deg, #0000005b 0%, #000000 100%);
+  --header-border: #2d005e;
+  /*--gradient-header-border: linear-gradient(90deg, #8A5BAC 0%, #1A1826 50%, #302448 100%);*/
   --underline-header: #D399FF;
-  --underline-header-shadow: 0 -4px 20px 2px #D399FF;
+  --underline-header-shadow: 0 -4px 20px 4px #D399FF;
+  --link-hover-shadow: 0 0 20px #D399FF;
 
   /* Buttons */
   --radial-gradient-button: radial-gradient(circle, #560FCD 0%, #8015EF 100%);
@@ -56,6 +62,9 @@
   --color-text-main: #F1EAFE;
   --color-text-secondary: #AFA3C7;
   --color-text-muted: #6F6388;
+
+  --color-text-glitch-1: #ff00ff;
+  --color-text-glitch-2: #00eaff;
 
   /* Borders */
   --color-border: #3A275C;

@@ -1,0 +1,37 @@
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(10% 0 80% 0); }
+    20% { clip-path: inset(30% 0 45% 0); }
+    40% { clip-path: inset(60% 0 20% 0); }
+    60% { clip-path: inset(15% 0 65% 0); }
+    80% { clip-path: inset(75% 0 5% 0); }
+    100% { clip-path: inset(40% 0 35% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(70% 0 10% 0); }
+    20% { clip-path: inset(20% 0 60% 0); }
+    40% { clip-path: inset(45% 0 30% 0); }
+    60% { clip-path: inset(5% 0 80% 0); }
+    80% { clip-path: inset(55% 0 25% 0); }
+    100% { clip-path: inset(25% 0 50% 0); }
+}
+
+@keyframes blink {
+    0%, 45% {
+        opacity: 1;
+    }
+
+    46%, 100% {
+        opacity: 0;
+    }
+}
+
+@keyframes pixelCardGlitchAnim {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50px);
+    }
+}

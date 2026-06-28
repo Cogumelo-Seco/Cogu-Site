@@ -7,7 +7,34 @@ function createGame(Listener, canvas) {
         rainbowColor: 0,
         images: {},
         sounds: {},
-        animations: {},
+        animations: {
+            gameOverGlitch: {
+                dalay: 0,
+                totalDalay: 1000/30,
+                frame: 0,
+                endFrame: 50,
+                startFrame: 0,
+                loop: true
+            },
+            gameOverSubText: {
+                dalay: 0,
+                totalDalay: 1000/10,
+                frame: 0,
+                endFrame: 5,
+                startFrame: 0,
+                boomerangForward: false,
+                boomerang: true
+            }
+        },
+        colors: {
+            bg: "#05030a",
+            snakeHead: "#c084fc",
+            snakeBody: "#6d28d9",
+            snakeBodyShadow: "#540ec4",
+            food: "#ff3b8f",
+            foodHighlight: "#ffd6f0",
+            glowPurple: "rgba(192, 132, 252, 0.45)",
+        },
         loading: {
             loaded: 0,
             total: 0,
@@ -18,12 +45,10 @@ function createGame(Listener, canvas) {
             height: 20,
             tileSize: 50
         },
-        fruits: [
-            {
+        fruit: {
                 x: 5,
                 y: 9
-            }
-        ],
+        },
         playerInfo: {
             x: 10,
             y: 10,
@@ -84,8 +109,11 @@ function createGame(Listener, canvas) {
     }
 
     async function gameLoop(command) {
-        if (window.innerWidth <= 500) document.getElementById('mobileButtonsContaner').style.display = 'block'
+        if (window.innerWidth <= 600) document.getElementById('mobileButtonsContaner').style.display = 'block'
         else document.getElementById('mobileButtonsContaner').style.display = 'none'
+
+        if (window.innerWidth <= 1380) document.getElementById('error-card').style.display = 'none'
+        else document.getElementById('error-card').style.display = 'block'
 
         let playerInfo = state.playerInfo
         let pressedKeys = []

@@ -1,15 +1,23 @@
 div.infoContaner {
-    background: rgba(0, 0, 0, 0.1);
+    background: radial-gradient(
+        circle at center,
+        rgb(0, 0, 0) 0%,
+        rgb(0, 0, 0) 35%,
+        rgba(0, 0, 0, 0.5) 65%,
+        rgba(0, 0, 0, 0) 100%
+    );
     border-radius: 18px;
     overflow: hidden;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(4px);
 
     margin: 0;
     left: 10px;
-    width: 40%;
+    width: 37vw;
+    min-width: min-content;
     min-height: 50%;
     height: 50vh;
-    padding: 7vh 0;
+    min-height: fit-content;
+    padding: 7vh 5vw;
     text-align: center;
 }
 
@@ -17,9 +25,6 @@ div.infoContaner > * {
   position: relative;
   z-index: 1;
 }
-
-
-/* TITLE GLITCH ANIMATION */
 
 .glitcTitle {
     position: relative;
@@ -48,37 +53,18 @@ div.infoContaner > * {
 
 .glitcTitle::before {
     left: 3px;
-    text-shadow: -3px 0 #ff00ff;
+    text-shadow: -3px 0 var(--color-text-glitch-1);
     animation: glitch-1 1.5s infinite linear alternate-reverse;
 }
 
 .glitcTitle::after {
     left: -3px;
-    text-shadow: 3px 0 #00eaff;
+    text-shadow: 3px 0 var(--color-text-glitch-2);
     animation: glitch-2 1.2s infinite linear alternate-reverse;
 }
 
-@keyframes glitch-1 {
-    0% { clip-path: inset(10% 0 80% 0); }
-    20% { clip-path: inset(30% 0 45% 0); }
-    40% { clip-path: inset(60% 0 20% 0); }
-    60% { clip-path: inset(15% 0 65% 0); }
-      80% { clip-path: inset(75% 0 5% 0); }
-    100% { clip-path: inset(40% 0 35% 0); }
-}
-
-@keyframes glitch-2 {
-    0% { clip-path: inset(70% 0 10% 0); }
-    20% { clip-path: inset(20% 0 60% 0); }
-    40% { clip-path: inset(45% 0 30% 0); }
-    60% { clip-path: inset(5% 0 80% 0); }
-    80% { clip-path: inset(55% 0 25% 0); }
-    100% { clip-path: inset(25% 0 50% 0); }
-}
-
-
 .infoSubtitle {
-    margin: 0 15%;
+    margin: 0 10%;
     font-size: 1.2rem;
     font-family: monospace;
     margin-bottom: 2vh;
@@ -124,19 +110,22 @@ div.cardsContainer {
     width: 100%;
 }
 
-.pixel-card {
+.pixelCard {
     position: relative;
     width: 30vw;
     min-height: 220px;
     display: flex;
     align-items: center;
-    gap: 60px;
+    padding: 0 2vw;
     text-decoration: none;
     color: #d9c9ff;
 
     background:
         radial-gradient(circle at 20% 120%, rgba(160, 70, 255, 0.18), transparent 35%),
         linear-gradient(135deg, rgba(20, 12, 32, 0.96), rgba(8, 5, 15, 0.98));
+    
+    background: url(../../imgs/Texture/button-dark.png) center;
+    background-size: 600px;
 
     border: 2px solid #8f3dff;
     box-shadow:
@@ -158,40 +147,43 @@ div.cardsContainer {
     overflow: hidden;
 }
 
-.pixel-card::before {
+.pixelCard::before {
     content: "";
     position: absolute;
-    inset: 8px;
-    border: 1px solid rgba(185, 120, 255, 0.35);
+    inset: 10px;
+    border: 1px solid rgba(190, 115, 255, .55);
+        clip-path: inherit;
     pointer-events: none;
+    box-shadow: inset 0 0 12px rgba(156, 60, 255, .3);
+}
 
-    clip-path: polygon(
-        14px 0,
-        calc(100% - 14px) 0,
-        100% 14px,
-        100% calc(100% - 14px),
-        calc(100% - 14px) 100%,
-        14px 100%,
-        0 calc(100% - 14px),
-        0 14px
+.pixelCard::after {
+    height: 200%;
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, .04) 0px,
+        rgba(255, 255, 255, .04) 1px,
+        transparent 1px,
+        transparent 5px
+    );
+    mix-blend-mode: screen;
+    animation: pixelCardGlitchAnim 1s linear infinite;
+}
+
+.pixelCard:hover::after {
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, .1) 0px,
+        rgba(255, 255, 255, .1) 1px,
+        transparent 1px,
+        transparent 5px
     );
 }
 
-.pixel-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(174, 93, 255, 0.15),
-    transparent
-  );
-  transform: translateX(-100%);
-  transition: 0.5s ease;
-}
-
-.pixel-card:hover {
+.pixelCard:hover {
     transform: translateY(-4px) scale(1.01);
     border-color: #c084ff;
     box-shadow:
@@ -200,16 +192,36 @@ div.cardsContainer {
         inset 0 0 24px rgba(142, 63, 255, 0.25);
 }
 
-.pixel-card:hover::after {
-    transform: translateX(100%);
-}
-
 .pixel-text h2 {
+    position: relative;
     margin: 0 0 18px;
     font-size: 42px;
-    color: #b96cff;
-    text-shadow: 0 0 14px rgba(185, 108, 255, 0.8);
+    color: #bd5cff;
+    text-shadow: 0 0 8px #a83cff;
 }
+
+.pixel-text h2::before,
+.pixel-text h2::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.pixel-text h2::before {
+    z-index: -1;
+    color: var(--color-text-glitch-1);
+    transform: translateX(-1px) translateY(-1px);
+}
+
+.pixel-text h2::after {
+    z-index: -2;
+    color: var(--color-text-glitch-2);
+    transform: translateX(1px) translateY(1px);
+}
+
+.pixelCard:hover .pixel-text h2::before { transform: translateX(-2px) translateY(-2px) }
+.pixelCard:hover .pixel-text h2::after { transform: translateX(2px) translateY(2px) }
 
 .pixel-text p {
     max-width: 360px;
@@ -224,33 +236,8 @@ div.cardsContainer {
     right: 42px;
     bottom: 36px;
     font-size: 34px;
-    color: #9d4edd;
-    text-shadow: 0 0 12px #9d4edd;
-}
-
-@keyframes blink {
-    0%, 45% {
-        opacity: 1;
-    }
-
-    46%, 100% {
-        opacity: 0;
-    }
-}
-
-@media screen and (max-width: 1030px) {
-    div.infoContaner {
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 53vh;
-    }
-
-    .glitcTitle {
-        font-size: 7rem;
-    }
-
-    .pixel-card {
-        width: 100%;
-    }
+    color: #d787ff;
+    text-shadow:
+        0 0 8px #b85cff,
+        0 0 18px #b85cff;
 }

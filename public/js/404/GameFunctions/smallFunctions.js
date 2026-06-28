@@ -1,19 +1,16 @@
 export default (state, Listener) => {
     let functions = {
         addFruit: () => {
-            state.fruits.push({
+            state.fruit = {
                 x: Math.floor(Math.random()*state.screenInfo.width),
                 y: Math.floor(Math.random()*state.screenInfo.height)
-            })
+            }
         },
         checkPlayerCollision: (playerInfo) => {
-            for (let i in state.fruits) {
-                if (playerInfo.x == state.fruits[i].x && playerInfo.y == state.fruits[i].y) {
-                    delete state.fruits[i]
-                    functions.addFruit()
-                    state.playSong('Sounds/up.mp3', { volume: 0.5 })
-                    playerInfo.score += 1
-                }
+            if (playerInfo.x == state.fruit.x && playerInfo.y == state.fruit.y) {
+                functions.addFruit()
+                state.playSong('Sounds/up.mp3', { volume: 0.5 })
+                playerInfo.score += 1
             }
     
             for (let i in state.playerInfo.traces) {

@@ -6,7 +6,6 @@ import Head from "next/head";
 
 function page(props) {
     useEffect(() => {
-        console.log('p-p')
     })
 
     return (
@@ -24,7 +23,7 @@ function page(props) {
             <head>
                 <link rel="stylesheet" href="/css/home/animations.css" />
                 <link rel="stylesheet" href="/css/home/home.css" />  
-                <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"></link>       
+                <link rel="stylesheet" href="/css/home/resize.css" />
             </head>
         
             <div class="infoContaner">
@@ -33,59 +32,49 @@ function page(props) {
                 <p class="infoSubtitle">Programador, criador de bots e projetos digitais com estética dark fantasy, glitch e roxo.</p>
 
                 <div class="tags">
-                    <span>Desenvolvedor</span>
-                    <span>Criador</span>
-                    <span>Dark Fantasy</span>
+                    <span>Dev</span>
+                    <span>BotMaker</span>
+                    <span>DarkFantasy</span>
+                    <span>PixelGlitch</span>
+                    <span>DarkFantasy</span>
                 </div>
             </div>
 
             <div class="cardsContainer">
-                <a href="/projects" class="pixel-card">
-                    <div class="pixel-icon">
-                    </div>
-
+                <a href="/projects" class="pixelCard">
                     <div class="pixel-text">
-                        <h2>Projetos</h2>
+                        <h2 data-text="Projetos">Projetos</h2>
                         <p>Uma coleção de ideias que saíram da cabeça, passaram pelo caos e viraram código.</p>
                     </div>
 
                     <div class="pixel-arrow">&gt;_</div>
                 </a>
 
-                <a href="https://glitchboundfunk.vercel.app/" target="_blank" class="pixel-card">
-                    <div class="pixel-icon">
-                    </div>
-
+                <a href="https://glitchboundfunk.vercel.app/" target="_blank" class="pixelCard">
                     <div class="pixel-text">
-                        <h2>Glitchbound Funk</h2>
+                        <h2 data-text="Glitchbound Funk">Glitchbound Funk</h2>
                         <p>Um jogo de ritmo inspirado em Friday Night Funkin’, focado em gameplay, e funcionalidades.</p>
                     </div>
 
                     <div class="pixel-arrow">&gt;_</div>
                 </a>
 
-                <a href="https://neural-blocks.vercel.app" target="_blank" class="pixel-card">
-                    <div class="pixel-icon">
-                    </div>
-
+                <a href="https://neural-blocks.vercel.app" target="_blank" class="pixelCard">
                     <div class="pixel-text">
-                        <h2>Neural Blocks</h2>
+                        <h2 data-text="Neural Blocks">Neural Blocks</h2>
                         <p>Rede neural evolutiva onde pequenos blocos aprendem sozinhos a sobreviver.</p>
                     </div>
 
                     <div class="pixel-arrow">&gt;_</div>
                 </a>
             </div>
-            
         </main>
     )
 }
 
 export async function getStaticProps(a) {
     return {
-        props: {
-            
-        },
+        props: { },
         revalidate: 1800
     }
 }

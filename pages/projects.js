@@ -26,17 +26,19 @@ function page(props) {
                 <meta property="og:image" content="/avatar/Roxo.png" />
                 <meta property="og:description" content="Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!" />
             </Head>
-            <head>     
+            <head>
+                <link rel="stylesheet" href="/css/projects/projects.css" />
             </head>
+
+            <h1>Foi mal ainda não tem nada</h1>
+            <h2>Tmj</h2>
         </main>
     )
 }
 
 export async function getStaticProps(a) {
     return {
-        props: {
-            
-        },
+        props: { },
         revalidate: 1800
     }
 }

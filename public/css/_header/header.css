@@ -15,9 +15,8 @@ div.headerBox {
 
     border: 2px solid transparent;
     border-radius: 16px;
-    background:
-        var(--gradient-header) padding-box,
-        var(--gradient-header-border) border-box;
+    background: var(--gradient-header) padding-box;
+    border: solid var(--header-border) 2px;
 
     padding: 10px;
     width: 100%;
@@ -31,15 +30,15 @@ div.headerBox {
     display: flex;
     font-weight: 900;
     letter-spacing: -0.04em;
-    text-shadow: 0 0 18px rgba(180, 108, 255, 0.7);
+    text-shadow: 0 0 18px var(--color-primary);
     color: var(--color-text-main);
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #fff;
-  text-shadow: 0 0 15px #9b4dff;
+  color: var(--color-text-main);
+  text-shadow: 0 0 15px var(--color-primary);
 }
 
 .logo div {
@@ -47,7 +46,7 @@ div.headerBox {
 }
 
 .logo span {
-    color: #b56cff;
+    color:  var(--color-primary-soft);
     animation: underlineAnimation .5s infinite ease-in-out alternate;
 }
 
@@ -63,7 +62,7 @@ div.headerBox {
 .nav-links {
     display: flex;
     gap: 22px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     
 }
 
@@ -71,22 +70,21 @@ div.headerBox {
     color: var(--color-text-main);
     position: relative;
     margin: 0 10px;
+    transition: all .5s ease;
 }
 
 .nav-links a.active::after {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -3px;
     width: 100%;
     height: 2px;
     background: var(--underline-header);
     box-shadow: var(--underline-header-shadow);
-    border-radius: 999px;
-    transition: width .5s ease;
 }
 
 .nav-links a:hover {
-    color: var(--color-text-main);
-    text-shadow: 0 0 18px var(--color-text-accent);
+    transform: translateY(-1px);
+    text-shadow: var(--link-hover-shadow);
 }

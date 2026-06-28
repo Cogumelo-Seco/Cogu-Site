@@ -1,0 +1,39 @@
+
+@media (max-width: 980px) {
+    .error-card {
+        padding: 42px 28px;
+        width: 100%;
+        left: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1400px) {
+    div#content {
+        left: 50%;
+    }
+
+    #gameContent {
+        left: 50%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    #gameContent {
+        width: 95vw;
+        height: 101vw;
+        position: fixed;
+        top: 84px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #gameCanvas {
+        width: 95vw;
+        height: 95vw;
+    }
+}

@@ -9,11 +9,7 @@ import renderGame from '../public/js/404/RenderGame/index.js';
 function Err() {
 
     useEffect(() => {
-        let errorCard = document.getElementById("error-card")
-
         document.getElementById('gameButton').onclick = () => {
-            errorCard.style.display = "none"
-            
             const canvas = document.getElementById('gameCanvas')        
             const Listener = createListener();
             const game = createGame(Listener, canvas);
@@ -40,7 +36,10 @@ function Err() {
                 <meta property="og:description" content="Olá eu sou o CoguBot, não tenho nada a dizer. Bom dia!" />
             </Head>
             <head>
+                <link rel="stylesheet" href="/css/_404/animations.css" />
                 <link rel="stylesheet" href="/css/_404/404.css" />
+                <link rel="stylesheet" href="/css/_404/game.css" />
+                <link rel="stylesheet" href="/css/_404/resize.css" />
             </head>
 
             <section class="error-card" id="error-card">

@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 1360px) {
+    .pixelCard {
+        height: 250px;
+    }
+    
+    .pixel-text h2 {
+        margin: 0 0 5px;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    div.infoContaner {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 53vh;
+    }
+
+    .glitcTitle {
+        font-size: 7rem;
+    }
+
+    .pixelCard {
+        width: 100%;
+        padding: 0 4vw;
+    }
+}

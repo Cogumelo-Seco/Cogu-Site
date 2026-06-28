@@ -8,6 +8,21 @@
   --glass: rgba(8, 3, 18, 0.72);
   --border: rgba(190, 115, 255, 0.95);
   --shadow: 0 0 22px rgba(168, 85, 255, 0.7);
+
+  --snake-bg: #05030a;
+  --snake-panel: #111016;
+  --snake-border: rgba(168, 85, 247, 0.35);
+  --snake-grid: rgba(255, 255, 255, 0.035);
+
+  --snake-head: #c084fc;
+  --snake-body: #6d28d9;
+  --snake-body-dark: #3b0764;
+
+  --food-main: #ff3b8f;
+  --food-glow: rgba(255, 59, 143, 0.55);
+
+  --text-main: #efe7ff;
+  --text-accent: #ff4fd8;
 }
 
 .error-card {
@@ -70,14 +85,14 @@
 }
 
 .glitch::before {
-    color: #00e5ff;
+    color: var(--color-text-glitch-2);
     transform: translate(4px, -2px);
     clip-path: inset(0 0 45% 0);
     animation: glitch-1 1.2s infinite linear alternate-reverse;
 }
 
 .glitch::after {
-    color: #ff3df2;
+    color: var(--color-text-glitch-1);
     transform: translate(-4px, 2px);
         clip-path: inset(55% 0 0 0);
     animation: glitch-2 1s infinite linear alternate-reverse;
@@ -153,64 +168,3 @@
     opacity: .96;
 }
 
-@keyframes glitch-skew {
-    0%, 92%, 100% { transform: skew(0deg); }
-    94% { transform: skew(3deg); }
-    96% { transform: skew(-4deg); }
-}
-
-@keyframes glitch-1 {
-    0% { clip-path: inset(10% 0 72% 0); }
-    30% { clip-path: inset(40% 0 38% 0); }
-    60% { clip-path: inset(72% 0 10% 0); }
-    100% { clip-path: inset(18% 0 62% 0); }
-}
-
-@keyframes glitch-2 {
-    0% { clip-path: inset(70% 0 12% 0); }
-    30% { clip-path: inset(18% 0 66% 0); }
-    60% { clip-path: inset(45% 0 35% 0); }
-    100% { clip-path: inset(8% 0 78% 0); }
-}
-
-@media (max-width: 980px) {
-    .error-card {
-        padding: 42px 28px;
-        width: 100%;
-        left: 0;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
-
-
-/* GAME */
-
-div#content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%) ;
-    text-align: center;
-}
-
-#gameContent {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    background-color: black;
-    display: none;
-}
-
-#gameHUD {
-    padding: 5px;
-    background-color: rgb(22, 22, 22);
-}
-
-#gameCanvas {
-    width: 60vh;
-    height: 60vh;
-}

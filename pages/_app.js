@@ -70,7 +70,7 @@ function App({ Component, pageProps }) {
 
             <header>
                 <div className="headerBox">
-                    <a href="#" className="logo">
+                    <a href="/" className="logo">
                         <div className="logo-text" data-text="Cogu">Cogu<span>_</span></div>
                     </a>
 

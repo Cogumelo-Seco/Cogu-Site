@@ -1,0 +1,28 @@
+@keyframes glitch-skew {
+    0%, 92%, 100% { transform: skew(0deg); }
+    94% { transform: skew(3deg); }
+    96% { transform: skew(-4deg); }
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(10% 0 72% 0); }
+    30% { clip-path: inset(40% 0 38% 0); }
+    60% { clip-path: inset(72% 0 10% 0); }
+    100% { clip-path: inset(18% 0 62% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(70% 0 12% 0); }
+    30% { clip-path: inset(18% 0 66% 0); }
+    60% { clip-path: inset(45% 0 35% 0); }
+    100% { clip-path: inset(8% 0 78% 0); }
+}
+
+@keyframes gameFilterAnim {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100px);
+    }
+}

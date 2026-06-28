@@ -1,0 +1,114 @@
+
+div#gameContent {
+    border: 1px solid var(--snake-border);
+    box-shadow: 0 0 18px rgba(140, 60, 255, 0.45), inset 0 0 20px rgba(120, 40, 255, 0.12);
+    overflow: hidden;
+}
+
+#gameContent {
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+
+    overflow: hidden;
+    display: none;
+
+    background:
+        linear-gradient(var(--snake-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--snake-grid) 1px, transparent 1px),
+        radial-gradient(circle at center, #0b0614 0%, var(--snake-bg) 70%);
+    background-size: 25px 25px, 25px 25px, 100% 100%;
+
+    animation: gridMove 8s linear infinite, bgPulse 3s ease-in-out infinite;
+}
+
+#gameContent::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    height: 120vh;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.035) 0px,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 2px,
+        transparent 5px
+    );
+
+    animation: gameFilterAnim 5s infinite linear;
+}
+
+#gameHUD {
+    height: 28px;
+    padding: 4px 8px;
+    
+    background: linear-gradient(
+        180deg,
+        rgba(45, 10, 80, 0.75),
+        rgba(10, 0, 20, 0.9)
+    );
+
+    border-bottom: 2px solid var(--snake-border);
+
+    color: var(--text-main);
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 0 #ff2f92,
+        -2px 0 #00eaff,
+        0 0 8px #ffffff;
+}
+
+#gameCanvas {
+    width: 60vh;
+    height: 60vh;
+}
+
+
+/* MOBILE */
+
+div#mobileButtonsContaner {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+button.mobileButtons {
+    margin: 6px;
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    background: rgba(80, 20, 150, .38);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 20px rgba(168,85,255,.55), inset 0 0 22px rgba(168,85,255,.18);
+    transition: all .5 linear;
+}
+
+button.mobileButtons:focus {
+    background: rgba(80, 20, 150, .6);
+}
+
+button.mobileButtons#mobileButtonUp {
+    background-image: url(/imgs/Arrows/arrow-up.png);
+}
+
+button.mobileButtons#mobileButtonDown {
+    background-image: url(/imgs/Arrows/arrow-down.png);
+}
+
+button.mobileButtons#mobileButtonLeft {
+    background-image: url(/imgs/Arrows/arrow-left.png);
+}
+
+button.mobileButtons#mobileButtonRight {
+    background-image: url(/imgs/Arrows/arrow-right.png);
+}
